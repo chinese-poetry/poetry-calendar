@@ -58,6 +58,10 @@ body {
     letter-spacing: 5px;
 }
 
+#pcontent {
+    white-space: pre;
+}
+
 .calendar-wrapper {
     padding-left: 1em;
     padding-right: 1em;

@@ -19,7 +19,7 @@
                         <table style="width: 100%;">
                             <tr>
                                 <td valign="middle" align="center" class="poetry-content">
-                                    <div class="uu">
+                                    <div id="pcontent" class="uu">
                                         别来春半,<br/>
                                         触目柔肠断。<br/>
                                         砌下落梅如雪乱，<br/>
@@ -34,8 +34,8 @@
                         </table>
                     </div>
                     <div class="two wide column poetry-title uu" style="padding: 0;">
-                        <div class="title">清平乐·别来春半</div>
-                        <div class="author">李煜</div>
+                        <div id="ptitle" class="title">清平乐·别来春半</div>
+                        <div id="pauthor" class="author">李煜</div>
                     </div>
                 </div>
 
@@ -80,9 +80,11 @@
     <script src="assets/js/calendar.js"></script>
     <script src="assets/js/web.js"></script>
     <script src="assets/js/节日表.js"></script>
+    <script src="assets/js/诗词表.js"></script>
 
     <script>
         var t = new Date();
+        var currentWeekNumber = weekNumber(t);
         var currentMonday = monDay(t);
         var currentWeeks = weekDays(currentMonday);
 
@@ -93,6 +95,14 @@
 
         document.getElementById("todayLunar").innerHTML = lunarDate
         document.getElementById("todaySolar").innerHTML = solarDate
+
+        // Poetry
+        var poetry = weekPoetry[currentWeekNumber[1]]
+        if (poetry) {
+            document.getElementById("pcontent").innerHTML = poetry.content
+            document.getElementById("ptitle").innerHTML = poetry.title
+            document.getElementById("pauthor").innerHTML = poetry.author
+        }
 
         var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
 
@@ -139,7 +149,6 @@
                 continue
             }
 
-            console.log(lunar.cMonth + '.' + lunar.cDay)
             if (lunar.cMonth + '.' + lunar.cDay in solarDayMap) {
                 lunarElement.innerHTML = solarDayMap[lunar.cMonth + '.' + lunar.cDay]
                 continue
