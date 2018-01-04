@@ -1,0 +1,135 @@
+body {
+    font-family: "STKaiti","KaiTi","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
+
+#main {
+    width: 45%;
+}
+
+#main .today {
+    margin-top: 30px;
+}
+
+#main .inner {
+    border: 1px solid #f3f3f4;
+    padding: 14px;
+    color: #60281E;
+}
+
+.today .solar {
+    color: #cccccc;
+    font-size: 1.5em;
+}
+
+.today .lunar {
+    color: #000;
+    font-size: 1.8em;
+}
+
+.uu {
+    text-align: start;
+    writing-mode: vertical-lr;
+    -moz-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    _writing-mode: tb-rl;
+}
+
+.poetry-title {
+    float: right;
+}
+
+.poetry-title .title {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    font-size: 2.5em;
+    display: inline-block;
+}
+
+.poetry-title .author {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    font-size: 1.5em;
+    color: #cccccc;
+    display: inline-block;
+}
+
+.poetry-content {
+    height: 300px;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    letter-spacing: 5px;
+}
+
+.calendar-wrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.calendar-wrapper .column .solar {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.calendar-wrapper .active {
+    color: #FF8C31;
+}
+
+.calendar-wrapper .column {
+    text-align: center;
+    padding: 1em;
+    border-top: 1px dashed #ccc;
+    border-right: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}
+
+.calendar-wrapper .column:first-child {
+    border-left: 1px dashed #ccc;
+}
+
+@media only screen and (max-width: 767px) {
+    body {
+        margin-top: 24px;
+        height: 100%;
+    }
+
+    #main {
+        width: 100%;
+    }
+
+    #main .today {
+        margin-top: 30px;
+    }
+
+    .today .solar {
+        font-size: .8em;
+    }
+    
+    .today .lunar {
+        font-size: 1em;
+    }
+
+    .poetry-title .title {
+        font-size: 1em;
+    }
+    
+    .poetry-title .author {
+        font-size: 0.8em;
+    }
+    
+    .poetry-content {
+        font-size: .8em;
+        line-height: 1.5em;
+        letter-spacing: 5px;
+    }
+
+    .calendar-wrapper .column .solar {
+        font-size: 1.2em;
+    }
+
+    .calendar-wrapper .column {
+        padding: 1em 0em!important;
+    }
+
+}  
