@@ -44,31 +44,31 @@
                         <div class="calendar row">
                             <div id="w1" class="column w1">
                                 <div class="solar">1</div>
-                                <div class="lunar">元旦</div>
+                                <div class="lunar">周一</div>
                             </div>
                             <div id="w2" class="column w2">
                                 <div class="solar">2</div>
-                                <div class="lunar">十六</div>
+                                <div class="lunar">周二</div>
                             </div>
                             <div id="w3" class="column w3">
                                 <div class="solar">3</div>
-                                <div class="lunar">十七</div>
+                                <div class="lunar">周三</div>
                             </div>
                             <div id="w4" class="column w4">
                                 <div class="solar">4</div>
-                                <div class="lunar">十八</div>
+                                <div class="lunar">周四</div>
                             </div>
                             <div id="w5" class="column w5">
                                 <div class="solar">5</div>
-                                <div class="lunar">小寒</div>
+                                <div class="lunar">周五</div>
                             </div>
                             <div id="w6" class="column w6">
                                 <div class="solar">6</div>
-                                <div class="lunar">二十</div>
+                                <div class="lunar">周六</div>
                             </div>
                             <div id="w7" class="column w7">
                                 <div class="solar">7</div>
-                                <div class="lunar">廿一</div>
+                                <div class="lunar">周日</div>
                             </div>
                         </div>    
                     </div>
@@ -79,13 +79,14 @@
 
     <script src="assets/js/calendar.js"></script>
     <script src="assets/js/web.js"></script>
+    <script src="assets/js/节日表.js"></script>
 
     <script>
         var t = new Date();
-        var monday = monDay(t);
-        var currentWeeks = weekDays(monday);
+        var currentMonday = monDay(t);
+        var currentWeeks = weekDays(currentMonday);
 
-        var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDay());
+        var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
 
         var lunarDate = day.gzYear + day.IMonthCn + day.IDayCn;
         var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
@@ -110,9 +111,40 @@
                 el.classList.add("active");
             }
 
-            el.getElementsByClassName("solar")[0].innerHTML = solar.getDate()
+            el.getElementsByClassName("solar")[0].innerHTML = lunar.cDay
 
             var lunarElement = el.getElementsByClassName("lunar")[0]
+
+            var nextDay = new Date(solar.getFullYear(),  solar.getMonth(), solar.getDate())
+            nextDay.setDate(solar.getDate() + 1);
+    
+            var nextDay = calendar.solar2lunar(
+                nextDay.getFullYear(), 
+                nextDay.getMonth() + 1, 
+                nextDay.getDate()
+            );
+
+            if (nextDay.IMonthCn + nextDay.IDayCn === '正月初一') {
+                lunarElement.innerHTML = '除夕'
+                continue
+            }
+
+            if (nextDay.Term === '清明') {
+                lunarElement.innerHTML = '寒食'
+                continue
+            }
+
+            if (lunar.IMonthCn + lunar.IDayCn in lundarDayMap) {
+                lunarElement.innerHTML = lundarDayMap[lunar.IMonthCn + lunar.IDayCn]
+                continue
+            }
+
+            console.log(lunar.cMonth + '.' + lunar.cDay)
+            if (lunar.cMonth + '.' + lunar.cDay in solarDayMap) {
+                lunarElement.innerHTML = solarDayMap[lunar.cMonth + '.' + lunar.cDay]
+                continue
+            }
+
             if (lunar.Term) {
                 lunarElement.innerHTML = lunar.Term
             } else {
