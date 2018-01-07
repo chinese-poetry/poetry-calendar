@@ -20,14 +20,14 @@
                             <tr>
                                 <td valign="middle" align="center" class="poetry-content">
                                     <div id="pcontent" class="uu">
-                                        别来春半,<br/>
-                                        触目柔肠断。<br/>
-                                        砌下落梅如雪乱，<br/>
-                                        拂了一身还满。<br/>
-                                        雁来音信无凭，<br/>
-                                        路遥归梦难成。<br/>
-                                        离恨恰如春草，<br/>
-                                        更行更远还生。
+    别来春半,
+    触目柔肠断。
+    砌下落梅如雪乱，
+    拂了一身还满。
+    雁来音信无凭，
+    路遥归梦难成。
+    离恨恰如春草，
+    更行更远还生。
                                     </div>
                                 </td>
                             </tr>
@@ -83,84 +83,88 @@
     <script src="assets/js/诗词表.js"></script>
 
     <script>
-        var t = new Date();
-        var currentWeekNumber = weekNumber(t);
-        var currentMonday = monDay(t);
-        var currentWeeks = weekDays(currentMonday);
+        function render(t) {
+            var currentWeekNumber = weekNumber(t);
+            var currentMonday = monDay(t);
+            var currentWeeks = weekDays(currentMonday);
 
-        var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
+            var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
 
-        var lunarDate = day.gzYear + day.IMonthCn + day.IDayCn;
-        var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
+            var lunarDate = day.gzYear + day.IMonthCn + day.IDayCn;
+            var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
 
-        document.getElementById("todayLunar").innerHTML = lunarDate
-        document.getElementById("todaySolar").innerHTML = solarDate
+            document.getElementById("todayLunar").innerHTML = lunarDate
+            document.getElementById("todaySolar").innerHTML = solarDate
 
-        // Poetry
-        var poetry = weekPoetry[currentWeekNumber[1]]
-        if (poetry) {
-            document.getElementById("pcontent").innerHTML = poetry.content
-            document.getElementById("ptitle").innerHTML = poetry.title
-            document.getElementById("pauthor").innerHTML = poetry.author
-        }
-
-        var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
-
-        for (var i in weekIds) {
-            var id = weekIds[i];
-            var solar = currentWeeks[i];
-            var lunar = calendar.solar2lunar(
-                solar.getFullYear(), 
-                solar.getMonth() + 1, 
-                solar.getDate()
-            );
-
-            var el = document.getElementById(id);
-
-            if (solar.getDate() === t.getDate()) {
-                el.classList.add("active");
+            // Poetry
+            var poetry = weekPoetry[currentWeekNumber[1] - 1]
+            if (poetry) {
+                document.getElementById("pcontent").innerHTML = poetry.content
+                document.getElementById("ptitle").innerHTML = poetry.title
+                document.getElementById("pauthor").innerHTML = poetry.author
             }
 
-            el.getElementsByClassName("solar")[0].innerHTML = lunar.cDay
+            var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
 
-            var lunarElement = el.getElementsByClassName("lunar")[0]
+            for (var i in weekIds) {
+                var id = weekIds[i];
+                var solar = currentWeeks[i];
+                var lunar = calendar.solar2lunar(
+                    solar.getFullYear(), 
+                    solar.getMonth() + 1, 
+                    solar.getDate()
+                );
 
-            var nextDay = new Date(solar.getFullYear(),  solar.getMonth(), solar.getDate())
-            nextDay.setDate(solar.getDate() + 1);
-    
-            var nextDay = calendar.solar2lunar(
-                nextDay.getFullYear(), 
-                nextDay.getMonth() + 1, 
-                nextDay.getDate()
-            );
+                var el = document.getElementById(id);
 
-            if (nextDay.IMonthCn + nextDay.IDayCn === '正月初一') {
-                lunarElement.innerHTML = '除夕'
-                continue
-            }
+                if (solar.getDate() === t.getDate()) {
+                    el.classList.add("active");
+                } else {
+                    el.classList.remove("active")
+                }
 
-            if (nextDay.Term === '清明') {
-                lunarElement.innerHTML = '寒食'
-                continue
-            }
+                el.getElementsByClassName("solar")[0].innerHTML = lunar.cDay
 
-            if (lunar.IMonthCn + lunar.IDayCn in lundarDayMap) {
-                lunarElement.innerHTML = lundarDayMap[lunar.IMonthCn + lunar.IDayCn]
-                continue
-            }
+                var lunarElement = el.getElementsByClassName("lunar")[0]
 
-            if (lunar.cMonth + '.' + lunar.cDay in solarDayMap) {
-                lunarElement.innerHTML = solarDayMap[lunar.cMonth + '.' + lunar.cDay]
-                continue
-            }
-
-            if (lunar.Term) {
-                lunarElement.innerHTML = lunar.Term
-            } else {
-                lunarElement.innerHTML = lunar.IDayCn
-            }
+                var nextDay = new Date(solar.getFullYear(),  solar.getMonth(), solar.getDate())
+                nextDay.setDate(solar.getDate() + 1);
             
+                var nextDay = calendar.solar2lunar(
+                    nextDay.getFullYear(), 
+                    nextDay.getMonth() + 1, 
+                    nextDay.getDate()
+                );
+
+                if (nextDay.IMonthCn + nextDay.IDayCn === '正月初一') {
+                    lunarElement.innerHTML = '除夕'
+                    continue
+                }
+
+                if (nextDay.Term === '清明') {
+                    lunarElement.innerHTML = '寒食'
+                    continue
+                }
+
+                if (lunar.IMonthCn + lunar.IDayCn in lundarDayMap) {
+                    lunarElement.innerHTML = lundarDayMap[lunar.IMonthCn + lunar.IDayCn]
+                    continue
+                }
+
+                if (lunar.cMonth + '.' + lunar.cDay in solarDayMap) {
+                    lunarElement.innerHTML = solarDayMap[lunar.cMonth + '.' + lunar.cDay]
+                    continue
+                }
+
+                if (lunar.Term) {
+                    lunarElement.innerHTML = lunar.Term
+                } else {
+                    lunarElement.innerHTML = lunar.IDayCn
+                }
+
+            }
         }
 
+        render(new Date());
     </script>
 </html>
