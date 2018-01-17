@@ -1,3 +1,5 @@
+window.day = 0;
+
 function weekDays(current) {
     var week= new Array(); 
     // Starting Monday not Sunday
@@ -30,4 +32,83 @@ function weekNumber(d) {
     var weekNo = Math.ceil(( ( (d - yearStart) / 86400000) + 1)/7);
     // Return array of year and week number
     return [d.getUTCFullYear(), weekNo];
+}
+
+function closeOther(ids, current) {
+    ids.forEach(function (id) {
+
+        if (id === current) {
+            return
+        }
+
+        var x = document.getElementById(id);
+
+        x.style.display = "none";
+    })
+}
+
+function toggleWechat () {
+    var x = document.getElementById("wx");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function useWechat () {
+    var wechat = document.getElementById("wechat");
+    var alipay = document.getElementById("alipay");
+    var wechatImage = document.getElementById("wechat-qrcode-image");
+    var alipayImage = document.getElementById("alipay-qrcode-image");
+
+    wechat.classList.add("active")
+    alipay.classList.remove("active")
+
+    wechatImage.style.display = "block"
+    alipayImage.style.display = "none"
+} 
+
+function useAlipay () {
+    var wechat = document.getElementById("wechat");
+    var alipay = document.getElementById("alipay");
+    var wechatImage = document.getElementById("wechat-qrcode-image");
+    var alipayImage = document.getElementById("alipay-qrcode-image");
+
+    alipay.classList.add("active")
+    wechat.classList.remove("active")
+
+    wechatImage.style.display = "none"
+    alipayImage.style.display = "block"
+} 
+
+function toggleById(ids, id) {
+    closeOther(ids, id)
+
+    var x = document.getElementById(id);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function next() {
+    var today = new Date();
+    var nextDay = new Date();
+    nextDay.setDate(today.getDate() + window.day + 7);
+    window.day = window.day + 7
+    render(nextDay)
+}
+
+function today() {
+    render(new Date());
+}
+
+function last() {
+    var today = new Date();
+    var nextDay = new Date();
+    nextDay.setDate(today.getDate() + window.day - 7);
+    window.day = window.day - 7
+    render(nextDay)
 }

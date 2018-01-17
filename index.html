@@ -5,10 +5,93 @@
         <link rel="stylesheet" href="assets/global.css">
         <link rel="stylesheet" href="assets/semantic/components/container.min.css">
         <link rel="stylesheet" href="assets/semantic/components/grid.min.css">
+        <link rel="stylesheet" href="assets/semantic/components/button.min.css">
+        <link rel="stylesheet" href="assets/semantic/components/icon.min.css">
     </head>
     <body>
         <div id="main" class="ui container">
             <div class="inner">
+                <div id="site-wrapper" style="display: none;" class="topwrapper">
+                    <h2>诗词周历</h2>
+                    <div class="description">
+                        <i class="teal quote left icon"></i>
+                        精心挑选53首诗词，精彩你的整年生活。常来看看， 愿你举手投足都是诗。 看见一场雨，我希望你会想起野渡横舟，曲中折柳；想起对长亭晚，深巷杏花；想起山色空濛，水光潋滟；想起暮烟枫桥，垂下帘栊。看见湖光山色，就会想起高山寒树，猿啼无绝；想起阴晴众壑，绝巘怪柏；鹤汀凫渚，绛皓驳色；想起水光潋滟，烟雨楼台。 而不是，车要堵了， 我要迟到了。
+                        <i class="teal quote right icon"></i>
+                    </div>
+                    <div class="ui black buttons">
+                        <button onclick="last()" class="ui secondary icon button">
+                            <i class="teal arrow left icon"></i>
+                        </button>
+                        <button onclick="today()" class="ui secondary icon button">
+                            今日
+                        </button>
+                        <button onclick="next()" class="ui secondary icon button">
+                            <i class="teal arrow right icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="social-links-wrapper" style="display: none;" class="topwrapper">
+                    <a href="/cdn-cgi/l/email-protection#3b5c5a54514e554a527b544e4f5754545015585456">
+                        <button class="ui mini red circular icon button">
+                            <i class="mail icon"></i>
+                        </button>
+                    </a>
+                    <a href="https://github.com/jackeygao">
+                        <button class="ui mini grey circular github icon button">
+                          <i class="github icon"></i>
+                        </button>
+                    </a>
+                    <a href="https://twitter.com/JackeyGaoo">
+                        <button class="ui mini circular twitter icon button">
+                          <i class="twitter icon"></i>
+                        </button>
+                    </a>
+                    <button onclick="toggleWechat()" class="ui mini green circular icon button">
+                        <i class="wechat icon"></i>
+                    </button>
+                    
+                    <div id="wx" style="display: none;">
+                        <img src="/assets/images/wx.jpeg" />
+                    </div>
+                </div>
+
+                <div id="donation-wrapper" style="display: none;" class="topwrapper">
+                    <div class="ui container" style="text-align: center;">
+                        <div class="description">
+                            <i class="teal quote left icon"></i>
+                            如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!
+                            <i class="teal quote right icon"></i>
+                        </div>
+        
+                        <div class="ui buttons">
+                            <button onclick="useWechat()" id="wechat" class="ui active secondary icon button">
+                                微信
+                            </button>
+                            <button onclick="useAlipay()" id="alipay" class="ui secondary icon button">
+                                支付宝
+                            </button>
+                        </div>
+        
+                        <div id="donation-qrcode">
+                            <img id="wechat-qrcode-image" src="/assets/images/wechat.png">
+                            <img id="alipay-qrcode-image" src="/assets/images/alipay.jpg">
+                            <!-- <img id="donation-qrcode-image" src="/assets/images/wechat.png"> -->
+                        </div>
+                    </div>
+                </div>
+                <div id="triggers-wrapper">
+                    <div class="ui black mini buttons">
+                        <button onclick="toggleById(wrappers, 'site-wrapper')" class="ui secondary icon button">
+                            <i class="list layout icon"></i>
+                        </button>
+                        <button onclick="toggleById(wrappers, 'social-links-wrapper')" class="ui secondary icon button">
+                            <i class="linkify icon"></i>
+                        </button>
+                        <button onclick="toggleById(wrappers, 'donation-wrapper')" class="ui secondary icon button">
+                            <i class="red heart icon"></i>
+                        </button>
+                    </div>
+                </div> 
                 <div class="today">
                     <div id="todaySolar" class="solar">2018年01月20日</div>
                     <div id="todayLunar" class="lunar">腊月初四</div>
@@ -83,6 +166,7 @@
     <script src="assets/js/诗词表.js"></script>
 
     <script>
+        var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper"]
         function render(t) {
             var currentWeekNumber = weekNumber(t);
             var currentMonday = monDay(t);
@@ -166,5 +250,6 @@
         }
 
         render(new Date());
+        useWechat();
     </script>
 </html>

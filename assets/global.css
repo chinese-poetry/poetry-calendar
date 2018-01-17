@@ -1,15 +1,83 @@
 body {
+    margin: 0;
     font-family: "STKaiti","KaiTi","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
 #main .today {
-    margin-top: 30px;
+    margin-top: 14px;
 }
 
 #main .inner {
-    border: 1px solid #f3f3f4;
-    padding: 14px;
+    border: 1px solid #34495E;
+    border-top: 5px solid #000;
+    padding: 0px 14px 14px 14px;
     color: #60281E;
+}
+
+.topwrapper {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    margin-left: -14px;
+    margin-right: -14px;
+}
+
+#site-wrapper, #social-links-wrapper {
+    text-align: center;
+}
+
+#site-wrapper .buttons .button {
+    border-radius: 0!important;
+}
+
+#site-wrapper .description {
+    margin-bottom: 30px;
+    line-height: 30px;
+}
+
+#triggers-wrapper {
+    text-align: right;
+    margin-right: -14px;
+}
+
+#social-links-wrapper #wx {
+    text-align: center;
+}
+
+#social-links-wrapper #wx img {
+    margin-top: 20px;
+    height: 240px;
+}
+
+#donation-wrapper .buttons .button {
+    width: 120px;
+    border-radius: 0!important;
+}
+
+#donation-wrapper .description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#donation-wrapper #wechat.active {
+    background-color: #44b549;
+}
+
+#donation-wrapper #alipay.active {
+    background-color: #059AE3;
+}
+
+#donation-wrapper #donation-qrcode img {
+    height: 450px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+#triggers-wrapper .buttons .button {
+    border-radius: 0!important;
+    background-color: #000!important;
+    padding-left: 20px!important;
+    padding-right: 20px!important;
 }
 
 .today .solar {
