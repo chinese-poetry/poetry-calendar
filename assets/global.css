@@ -220,4 +220,9 @@ body {
         padding: 1em .5em!important;
     }
 
+    #donation-wrapper #donation-qrcode img {
+        height: 300px;
+        max-width: 200px;
+    }
+
 }  
