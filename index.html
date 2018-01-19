@@ -3,12 +3,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="assets/global.css">
+        <link rel="stylesheet" href="assets/skin.css">
         <link rel="stylesheet" href="assets/semantic/components/container.min.css">
         <link rel="stylesheet" href="assets/semantic/components/grid.min.css">
         <link rel="stylesheet" href="assets/semantic/components/button.min.css">
         <link rel="stylesheet" href="assets/semantic/components/icon.min.css">
     </head>
-    <body>
+    <body class="hongzhu">
         <div id="main" class="ui container">
             <div class="inner">
                 <div id="site-wrapper" style="display: none;" class="topwrapper">
@@ -30,6 +31,39 @@
                         </button>
                     </div>
                 </div>
+
+                <div id="skin-wrapper" style="display: none;" class="topwrapper">
+                    <h2>外观选择</h2>
+                    <table id="theme" style="width: 100%;">
+                        <tbody>
+                            <tr onclick="document.body.className = 'mo'">
+                                <td align="right">水墨逢丹青</td>
+                                <td width="50%;"><div style="width: 100%;height: 25px;" class="mo"></div></td>
+                            </tr>
+                            <tr onclick="document.body.className = 'jiangzi'">
+                                <td align="right">绛紫沁素白</td>
+                                <td width="50%;"><div style="width: 100%;height: 25px;" class="jiangzi"></div></td>
+                            </tr>
+                            <tr onclick="document.body.className = 'shenyanhong'">
+                                <td align="right">深胭红枯绿</td>
+                                <td width="50%;"><div style="width: 100%;height: 25px;" class="shenyanhong"></div></td>
+                            </tr>
+                            <tr onclick="document.body.className = 'labai'">
+                                <td align="right">西窗透蜡白</td>
+                                <td width="50%;"><div style="width: 100%;height: 25px;" class="labai"></div></td>
+                            </tr>
+                            <tr onclick="document.body.className = 'jiehong'">
+                                <td align="right">橘红蘸溪湿</td>
+                                <td width="50%;"><div style="width: 100%;height: 25px;" class="jiehong"></div></td>
+                            </tr>
+                            <tr onclick="document.body.className = 'hongzhu'">
+                                <td align="right">红烛昏罗帐</td>
+                                <td width="50%;"><div style="width: 100%;height: 25px;" class="hongzhu"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
                 <div id="social-links-wrapper" style="display: none;" class="topwrapper">
                     <a href="/cdn-cgi/l/email-protection#3b5c5a54514e554a527b544e4f5754545015585456">
                         <button class="ui mini red circular icon button">
@@ -83,6 +117,9 @@
                     <div class="ui black mini buttons">
                         <button onclick="toggleById(wrappers, 'site-wrapper')" class="ui secondary icon button">
                             <i class="list layout icon"></i>
+                        </button>
+                        <button onclick="toggleById(wrappers, 'skin-wrapper')" class="ui secondary icon button">
+                            <i class="snowflake icon"></i>
                         </button>
                         <button onclick="toggleById(wrappers, 'social-links-wrapper')" class="ui secondary icon button">
                             <i class="linkify icon"></i>
@@ -166,7 +203,7 @@
     <script src="assets/js/诗词表.js"></script>
 
     <script>
-        var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper"]
+        var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper", "skin-wrapper"]
         function render(t) {
             var currentWeekNumber = weekNumber(t);
             var currentMonday = monDay(t);

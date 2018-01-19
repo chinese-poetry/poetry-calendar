@@ -22,6 +22,10 @@ body {
     margin-right: -14px;
 }
 
+#skin-wrapper, #social-links-wrapper {
+    text-align: center;
+}
+
 #site-wrapper, #social-links-wrapper {
     text-align: center;
 }
@@ -78,6 +82,15 @@ body {
     background-color: #000!important;
     padding-left: 20px!important;
     padding-right: 20px!important;
+}
+
+#theme tr {
+    height: 30px;
+    font-size: 20px;
+}
+
+#theme td {
+    padding: .5em;
 }
 
 .today .solar {
@@ -224,5 +237,4 @@ body {
         height: 300px;
         max-width: 200px;
     }
-
 }  
