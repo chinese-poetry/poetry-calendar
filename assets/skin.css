@@ -88,6 +88,10 @@
     border: 1px solid #643441!important;
 }
 
+.labai #pcontent {
+    color: #643441;
+}
+
 .labai #triggers-wrapper .buttons .button {
     background-color: #643441!important;
 }
