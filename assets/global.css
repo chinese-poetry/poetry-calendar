@@ -87,6 +87,7 @@ body {
 #theme tr {
     height: 30px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 #theme td {
