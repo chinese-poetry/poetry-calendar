@@ -36,27 +36,27 @@
                     <h2>外观选择</h2>
                     <table id="theme" style="width: 100%;">
                         <tbody>
-                            <tr onclick="document.body.className = 'mo'">
+                            <tr onclick="document.body.className = 'mo'; localStorage.setItem('skin', 'mo');">
                                 <td align="right">水墨逢丹青</td>
                                 <td width="50%;"><div style="width: 100%;height: 25px;" class="mo"></div></td>
                             </tr>
-                            <tr onclick="document.body.className = 'jiangzi'">
+                            <tr onclick="document.body.className = 'jiangzi'; localStorage.setItem('skin', 'jiangzi');">
                                 <td align="right">绛紫沁素白</td>
                                 <td width="50%;"><div style="width: 100%;height: 25px;" class="jiangzi"></div></td>
                             </tr>
-                            <tr onclick="document.body.className = 'shenyanhong'">
+                            <tr onclick="document.body.className = 'shenyanhong'; localStorage.setItem('skin', 'shenyanhong');">
                                 <td align="right">深胭红枯绿</td>
                                 <td width="50%;"><div style="width: 100%;height: 25px;" class="shenyanhong"></div></td>
                             </tr>
-                            <tr onclick="document.body.className = 'labai'">
+                            <tr onclick="document.body.className = 'labai'; localStorage.setItem('skin', 'labai');">
                                 <td align="right">西窗透蜡白</td>
                                 <td width="50%;"><div style="width: 100%;height: 25px;" class="labai"></div></td>
                             </tr>
-                            <tr onclick="document.body.className = 'jiehong'">
+                            <tr onclick="document.body.className = 'jiehong'; localStorage.setItem('skin', 'jiehong');">
                                 <td align="right">橘红蘸溪湿</td>
                                 <td width="50%;"><div style="width: 100%;height: 25px;" class="jiehong"></div></td>
                             </tr>
-                            <tr onclick="document.body.className = 'hongzhu'">
+                            <tr onclick="document.body.className = 'hongzhu'; localStorage.setItem('skin', 'hongzhu');">
                                 <td align="right">红烛昏罗帐</td>
                                 <td width="50%;"><div style="width: 100%;height: 25px;" class="hongzhu"></div></td>
                             </tr>
@@ -288,5 +288,13 @@
 
         render(new Date());
         useWechat();
+
+        var skin = localStorage.getItem('skin');
+
+        if (skin) {
+            document.body.className = skin;
+        } else {
+            localStorage.setItem('skin', 'labai');
+        }
     </script>
 </html>
