@@ -9,6 +9,7 @@
 
 .hei #main .inner {
     border: 0!important;
+    border-top: 5px solid #546b83!important;
 }
 
 .hei #main .inner {
@@ -26,10 +27,7 @@
 
 .mo #main .inner {
     border: 0!important;
-}
-
-.mo #main .inner {
-    border: 0!important;
+    border-top: 5px solid #585756!important;
 }
 
 .mo #triggers-wrapper .buttons .button {
@@ -47,10 +45,7 @@
 
 .jiangzi #main .inner {
     border: 0!important;
-}
-
-.jiangzi #main .inner {
-    border: 0!important;
+    border-top: 5px solid #704d4e!important;
 }
 
 .jiangzi #triggers-wrapper .buttons .button {
@@ -136,7 +131,7 @@
     color: #e7e5d0!important;
 }
 
-.labai #pcontent {
+.hongzhu #pcontent {
     color: #e7e5d0;
 }
 
