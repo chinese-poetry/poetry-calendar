@@ -72,7 +72,6 @@ body {
 }
 
 #donation-wrapper #donation-qrcode img {
-    height: 450px;
     max-width: 300px;
     margin: 20px auto;
 }
