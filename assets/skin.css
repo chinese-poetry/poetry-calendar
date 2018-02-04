@@ -89,7 +89,8 @@
 }
 
 .labai #main .inner {
-    border: 1px solid #643441!important;
+    border: 1px solid #e7e5d0!important;
+    border-top: 5px solid #643441!important;
 }
 
 .labai #pcontent {
@@ -107,7 +108,8 @@
 }
 
 .jiehong #main .inner {
-    border: 1px solid #643441!important;
+    border: 1px solid #e7693f!important;
+    border-top: 5px solid #643441!important;
 }
 
 .jiehong #triggers-wrapper .buttons .button {
