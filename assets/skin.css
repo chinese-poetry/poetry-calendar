@@ -34,6 +34,14 @@
     background-color: #585756!important;
 }
 
+.mo #pcontent {
+    color: #546b83;
+}
+
+.mo #ptitle {
+    color: #bb1c33;
+}
+
 /* 绛紫沁素白 */
 .jiangzi, .jiangzi .topwrapper {
     background-color: #704d4e!important;
@@ -58,15 +66,16 @@
 }
 
 .shenyanhong #main {
-    background-color: #b7b278!important;
+    background-color: #fff!important;
+}
+
+.shenyanhong #pcontent {
+    color: #b7b278;
 }
 
 .shenyanhong #main .inner {
     border: 0!important;
-}
-
-.shenyanhong #main .inner {
-    border: 0!important;
+    border-top: 5px solid #643441!important;
 }
 
 .shenyanhong #triggers-wrapper .buttons .button {
@@ -116,15 +125,16 @@
 }
 
 .hongzhu #main .inner {
-    border: 1px solid #643441!important;
+    border: 1px solid #bb1c33!important;
+    border-top: 5px solid #000!important;
 }
 
 .hongzhu #triggers-wrapper .buttons .button {
-    background-color: #643441!important;
+    background-color: #000!important;
 }
 
 .hongzhu #triggers-wrapper .buttons .button {
-    color: #e7e5d0!important;
+    color: #e9db39!important;
 }
 
 .hongzhu .poetry-title .title {
