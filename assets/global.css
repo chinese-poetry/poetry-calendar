@@ -106,7 +106,7 @@ body {
 
 .uu {
     text-align: start;
-    writing-mode: vertical-lr;
+    writing-mode: vertical-rl;
     -moz-writing-mode: vertical-rl;
     -webkit-writing-mode: vertical-rl;
     -o-writing-mode: vertical-rl;
