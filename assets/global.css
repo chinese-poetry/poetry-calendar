@@ -199,13 +199,13 @@ body {
 /* Mobile */
 @media only screen and (max-width: 767px) {
     body {
-        margin-top: 24px;
         height: 100%;
     }
 
     #main {
         width: 100%;
         background-size: 510px 100%;
+        margin: 0!important;
     }
 
     #main .today {
