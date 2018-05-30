@@ -8,7 +8,7 @@ body {
 }
 
 #main {
-    height: 100%;
+    min-height: 100%;
     background-image: url(images/ying.png);
     background-repeat: no-repeat;
 }
@@ -19,7 +19,7 @@ body {
     border-top: 5px solid #000;
     padding: 0px 14px 14px 14px;
     color: #60281E;
-    height: 100%;
+    min-height: 100%;
 }
 
 .topwrapper {
