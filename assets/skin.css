@@ -9,7 +9,6 @@
 
 .hei #main .inner {
     border: 0!important;
-    border-top: 5px solid #546b83!important;
 }
 
 .hei #main .inner {
@@ -27,10 +26,13 @@
 
 .mo #main .inner {
     border: 0!important;
-    border-top: 5px solid #585756!important;
 }
 
 .mo #triggers-wrapper .buttons .button {
+    background-color: #585756!important;
+}
+
+.mo #main #inner-top {
     background-color: #585756!important;
 }
 
@@ -53,10 +55,13 @@
 
 .jiangzi #main .inner {
     border: 0!important;
-    border-top: 5px solid #704d4e!important;
 }
 
 .jiangzi #triggers-wrapper .buttons .button {
+    background-color: #704d4e!important;
+}
+
+.jiangzi #main #inner-top {
     background-color: #704d4e!important;
 }
 
@@ -73,15 +78,21 @@
     color: #b7b278;
 }
 
+.shenyanhong #main {
+    background-color: #fff!important;
+}
+
 .shenyanhong #main .inner {
     border: 0!important;
-    border-top: 5px solid #643441!important;
 }
 
 .shenyanhong #triggers-wrapper .buttons .button {
     background-color: #643441!important;
 }
 
+.shenyanhong #main #inner-top {
+    background-color: #643441!important;
+}
 /* 西窗透蜡白 */
 .labai, .labai .topwrapper {
     background-color: #e7e5d0!important;
@@ -90,8 +101,12 @@
 
 .labai #main .inner {
     border: 1px solid #e7e5d0!important;
-    border-top: 5px solid #643441!important;
 }
+
+.labai #main {
+    background-color: #fff!important;
+}
+
 
 .labai #pcontent {
     color: #643441;
@@ -101,15 +116,22 @@
     background-color: #643441!important;
 }
 
+.labai #main #inner-top {
+    background-color: #643441!important;
+}
+
 /* 橘红蘸溪湿 */
 .jiehong, .jiehong .topwrapper {
     background-color: #e7693f!important;
     color: #643441;
 }
 
+.jiehong #main {
+    background-color: #fff!important;
+}
+
 .jiehong #main .inner {
     border: 1px solid #e7693f!important;
-    border-top: 5px solid #643441!important;
 }
 
 .jiehong #triggers-wrapper .buttons .button {
@@ -120,15 +142,22 @@
     color: #e7693f!important;
 }
 
+.jiehong #main #inner-top {
+    background-color: #643441!important;
+}
+
 /* 红烛昏罗帐 */
 .hongzhu, .hongzhu .topwrapper {
     background-color: #bb1c33!important;
     color: #e7e5d0;
 }
 
+.hongzhu #main {
+    background-color: #fff!important;
+}
+
 .hongzhu #main .inner {
     border: 1px solid #bb1c33!important;
-    border-top: 5px solid #000!important;
 }
 
 .hongzhu #triggers-wrapper .buttons .button {
@@ -139,12 +168,16 @@
     color: #e9db39!important;
 }
 
+.hongzhu #main #inner-top {
+    background-color: #000!important;
+}
+
 .hongzhu .poetry-title .title {
-    color: #e7e5d0!important;
+    color: #643441!important;
 }
 
 .hongzhu #pcontent {
-    color: #e7e5d0;
+    color: #643441;
 }
 
 .hongzhu .today .lunar {
