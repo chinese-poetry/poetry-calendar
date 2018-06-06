@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: "STKaiti","KaiTi", PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+    font-family: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
     font-weight: 100;
 }
 
@@ -152,7 +152,7 @@ body {
     font-size: 1.3em;
     line-height: 1.5em;
     letter-spacing: 5px;
-    font-weight: 200;
+    font-weight: 300;
 }
 
 #pcontent {
@@ -247,7 +247,11 @@ body {
     }
 
     .calendar-wrapper .column .solar {
-        font-size: 1.2em;
+        font-size: .8em;
+    }
+
+    .calendar-wrapper .column .lunar {
+        font-size: .8em;
     }
 
     .calendar-wrapper .column {
