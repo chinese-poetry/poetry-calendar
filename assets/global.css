@@ -230,10 +230,12 @@ body {
 
     .poetry-title .title {
         font-size: 1em;
+        min-height: 120px;
     }
     
     .poetry-title .author {
         font-size: 0.8em;
+        background-position: 200 220;
     }
     
     .poetry-content {
