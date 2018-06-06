@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: "STKaiti","KaiTi","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-family: "STKaiti","KaiTi", PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+    font-weight: 100;
 }
 
 #main .today {
@@ -148,9 +149,10 @@ body {
 
 .poetry-content {
     height: 300px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     line-height: 1.5em;
     letter-spacing: 5px;
+    font-weight: 200;
 }
 
 #pcontent {
