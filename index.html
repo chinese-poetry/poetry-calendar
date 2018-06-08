@@ -235,6 +235,7 @@
                 document.getElementById("ptitle").innerHTML = poetry.title
                 document.getElementById("pauthor").innerHTML = poetry.author
             }
+            console.log(poetry)
 
             var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
 
@@ -247,10 +248,17 @@
                     solar.getDate()
                 );
 
+                console.log(lunar)
+
                 var el = document.getElementById(id);
 
                 if (solar.getDate() === t.getDate()) {
                     el.classList.add("active");
+                    if (lunar.lMonth === 4 && lunar.lDay === 26) {
+                        document.getElementById("pcontent").innerHTML = "祝你生日快乐，\n祝你生日快乐，\n祝你生日快乐，\n祝你生日快乐~~"
+                        document.getElementById("ptitle").innerHTML = "生日歌"
+                        document.getElementById("pauthor").innerHTML = "党中央"
+                    }
                 } else {
                     el.classList.remove("active")
                 }
