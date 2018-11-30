@@ -41,9 +41,17 @@
                     <div id="imageCover" class="cover" style="background-image: url('assets/images/thumb.jpg');">
                         <div class="intro">
                             <div class="inner">
-                            来自: <a id="imageLink" href="https://jackeygao.io" target="blank">JackeyGao</a>
-                            </div>
+                                <div class="left" style="display: inline-block;" onclick="last()">
+                                    ←
+                                </div>
+                                <div class="middle">来自: <a id="imageLink" href="https://jackeygao.io" target="blank">JackeyGao</a></div>
+                                
+                                <div class="right" style="display: inline-block;" onclick="next()">
+                                     →
+                                </div>
                         </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="you column">
@@ -80,7 +88,7 @@
                     </div>
 
                     <div class="calendar">
-                        <div class="ui seven item menu">
+                        <div class="ui text seven item menu">
                             <div id="w1" data-date="2018-08-01" class="item">
                                 <div>
                                     <div class="yang">26</div>
@@ -126,6 +134,10 @@
                         </div>
                     </div>
                     </div>
+
+                    <div class="footer">
+                        © <a href="https://jackeygao.io">JackeyGao.io</a> 2018. 
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,10 +166,9 @@
 
             // images
             var image = images[Math.floor(Math.random() * images.length)];
-            console.log("url('images/" + image.src + "');")
             document.getElementById("imageCover").style.backgroundImage = "url('images/" + image.src + "')";
             document.getElementById("imageLink").href = image.link;
-            document.getElementById("imageLink").innerText = image.author;
+            document.getElementById("imageLink").innerHTML = image.author;
 
             // Poetry
             var poetry = weekPoetry[currentWeekNumber[1] - 1]

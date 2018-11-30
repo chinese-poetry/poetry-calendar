@@ -76,18 +76,45 @@ body ::-webkit-scrollbar {
     background: rgba(0, 0, 0, 0.3686274509803922);
     color: #fff;
     width: auto;
-    padding: .715em 1em;
+    line-height: 40px;
+    padding: 0em;
     display: inline-block;
     font-size: 12px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
-#main .zuo .cover .intro .inner a {
+#main .zuo .cover .intro .inner a, .footer a {
     color: #fff;
     border-bottom: 1px solid #fff;
 }
 
-#main .zuo .cover .intro .inner a:hover {
+#main .zuo .cover .intro .inner a:hover, .footer a:hover {
     color: #fdf1db;
+}
+
+#main .zuo .intro .left ,#main .zuo .intro .right, #main .zuo .intro .middle{
+    display: inline-block;    
+    color: #fff;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#main .zuo .intro .middle {
+    padding: 0 1em;
+}
+
+#main .zuo .intro .left {
+    width: 40px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+}
+
+#main .zuo .intro .right {
+    width: 40px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
 }
 
 
@@ -106,7 +133,7 @@ body ::-webkit-scrollbar {
 }
 
 #main .you .middle {
-    height: calc(100% - (60px + 80px));
+    height: calc(100% - (60px + 108px));
 }
 
 
@@ -132,7 +159,19 @@ body ::-webkit-scrollbar {
 }
 
 #main .calendar {
-    height: 80px;
+    height: auto;
+    padding: 14px;
+}
+
+#main .footer {
+    background: #333;
+    color: #fff;
+    display: none;
+    padding: 1.2em 0em;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
 #main .menu {
@@ -142,12 +181,26 @@ body ::-webkit-scrollbar {
     border-left: 0;
     border-right: 0;
     border-radius: 0;
+    margin: 0;
+}
+
+#main .menu .item:first-child {
+    width: calc(14.285% - 2px);
+    border-left: 1px dashed #eee
+}
+
+#main .menu .item:end-child {
+    width: calc(14.285% - 2px);
 }
 
 #main .menu .item {
     color: #333;
     border-radius: 0!important;
     cursor: pointer;
+    border-top: 1px dashed #eee;
+    border-bottom: 1px dashed #eee;
+    border-right: 1px dashed #eee;
+    width: calc(14.285% - 1px);
 }
 
 #main .menu .item:hover {
@@ -212,7 +265,7 @@ body ::-webkit-scrollbar {
     color: #333;
     font-size: 1.315em;
     font-weight: 300;
-    line-height: 20px;
+    line-height: 1.8em;
     letter-spacing: 5px;
 }
 
@@ -274,6 +327,28 @@ body ::-webkit-scrollbar {
 
     #main .you .top .today {
         font-size: 20px;
+    }
+
+    #main .menu {
+        height: auto;
+    }
+
+    #main .footer {
+        display: block;
+    }
+
+    #main .calendar {
+        padding: 1px;
+    }
+
+    #main .menu .item:first-child {
+        border-left: 0;
+        width: calc(14.285% - 1px);
+    }
+
+    #main .menu .item:end-child {
+        border-right: 0;
+        width: calc(14.285% - 1px);
     }
 }
 

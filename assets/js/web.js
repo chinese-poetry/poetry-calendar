@@ -96,8 +96,8 @@ function toggleById(ids, id) {
 function next() {
     var today = new Date();
     var nextDay = new Date();
-    nextDay.setDate(today.getDate() + window.day + 7);
-    window.day = window.day + 7
+    nextDay.setDate(today.getDate() + window.day + 1);
+    window.day = window.day + 1
     render(nextDay)
 }
 
@@ -108,8 +108,8 @@ function today() {
 function last() {
     var today = new Date();
     var nextDay = new Date();
-    nextDay.setDate(today.getDate() + window.day - 7);
-    window.day = window.day - 7
+    nextDay.setDate(today.getDate() + window.day - 1);
+    window.day = window.day - 1
     render(nextDay)
 }
 
