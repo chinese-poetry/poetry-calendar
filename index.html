@@ -56,12 +56,15 @@
                 </div>
                 <div class="you column">
                     <div class="you-wrapper">
-                    <div class="ui top equal width top grid">
+
+                    <div class="ui top only-screen equal width top grid">
                         <div class="l ten wide column">
+                            <div id="firstSolar" class="yang">2018.11.30 周五</div>
                             <div id="todaySolar" class="yang">2018.11.30 周五</div>
                         </div>
                         <div class="r column">
                             <div onclick="today()" id="todayLunar" class="today">十月廿三</div>
+                            <div id="firstLunar" class="today">十月廿三</div>
                         </div>
                     </div>
 
@@ -198,6 +201,11 @@
                     solar.getMonth() + 1, 
                     solar.getDate()
                 );
+
+                if (id === 'w1') {
+                    document.getElementById("firstSolar").innerHTML = day.cMonth + '月' + day.cDay + '号';
+                    document.getElementById("firstLunar").innerHTML = lunar.IMonthCn + lunar.IDayCn;
+                }
 
                 var el = document.getElementById(id);
 
