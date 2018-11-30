@@ -112,3 +112,23 @@ function last() {
     window.day = window.day - 7
     render(nextDay)
 }
+
+function setContentP (content) {
+    if (content instanceof Array) {
+        var ps = content
+        console.log(ps)
+    } else {
+        var ps = content.split('\n');
+    }
+    var root = document.getElementById("pcontent");
+
+    root.innerHTML = '';
+
+    for (var i in ps) {
+        var p = ps[i]
+        var element = document.createElement('p');
+        var text = document.createTextNode(p);
+        element.appendChild(text);
+        root.appendChild(element);
+    }
+}

@@ -1,275 +1,335 @@
 body {
     margin: 0;
-    font-family: STKaiti, KaiTi, PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
-    font-weight: 100;
 }
 
-#main .today {
-    margin-top: 14px;
+body ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 2px!important;
+    height: 2px!important;
 }
 
 #main {
     height: 100%;
-    min-height: 100%;
-    background-image: url(images/ying.png);
+    width: 100%;
+    background-image: url(http://shici.store/poetry-calendar/assets/images/ying.png);
+    background-position: right;
     background-repeat: no-repeat;
 }
 
-#main .inner {
-    background-image: url(images/bg.png);
-    border: 1px solid #34495E;
-    border-top: 5px solid #000;
-    padding: 0px 14px 14px 14px;
-    color: #60281E;
-    min-height: 100%;
-    padding-bottom: 0!important;
+#main .container {
+    height: 100%;
+    width: 100%;
+    /*
+    position: absolute;
+    height: 80%;
+    width: 90%;
+    margin: auto; 
+    left: 0; right: 0; top: 0; bottom: 0;
+    */
 }
 
-.topwrapper {
-    background-color: #000;
+#main #grid {
+    height: 100%;
+}
+
+
+#main #grid .zuo, #main #grid .you {
+    height: 100%;
+    padding: 0em;
+}
+
+#main .zuo .cover {
+    height: 80%;
+    width: 80%;
+    background-size: cover;
+    background-position: center center;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#main .you .you-wrapper {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 1px solid #eee;
+}
+
+#main .zuo .cover .intro {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    bottom: 2em;
+    right: 0em;
+}
+
+#main .zuo .cover .inner {
+    background: rgba(0, 0, 0, 0.3686274509803922);
     color: #fff;
-    padding: 20px;
-    margin-left: -14px;
-    margin-right: -14px;
+    width: auto;
+    padding: .715em 1em;
+    display: inline-block;
+    font-size: 12px;
 }
 
-#skin-wrapper, #social-links-wrapper {
-    text-align: center;
+#main .zuo .cover .intro .inner a {
+    color: #fff;
+    border-bottom: 1px solid #fff;
 }
 
-#site-wrapper, #social-links-wrapper {
-    text-align: center;
+#main .zuo .cover .intro .inner a:hover {
+    color: #fdf1db;
 }
 
-#site-wrapper .buttons .button {
-    border-radius: 0!important;
+
+/* main you */
+#main .you {
+    background: rgba(255, 255, 255, 0.45);
 }
 
-#site-wrapper .description {
-    margin-bottom: 30px;
-    line-height: 30px;
+#main .you .top {
+    height: 60px;
+    margin: 0;
 }
 
-#triggers-wrapper {
+#main .you .top .column {
+    padding: 0;
+}
+
+#main .you .middle {
+    height: calc(100% - (60px + 80px));
+}
+
+
+#main .you .top .today {
+    height: 60px;
     text-align: right;
-    margin-right: -14px;
+    line-height: 60px;
+    font-size: 2em;
+    font-weight: 400;
+    padding-right: 16px;
+    color: #333;
+    opacity: .8;
 }
 
-#social-links-wrapper #wx {
-    text-align: center;
+#main .you .top .yang {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    font-size: 2em;
+    font-weight: 300;
+    padding-left: 16px;
+    color:#488b8f;
 }
 
-#social-links-wrapper #wx img {
-    margin-top: 20px;
-    height: 240px;
+#main .calendar {
+    height: 80px;
 }
 
-#donation-wrapper .buttons .button {
-    width: 120px;
+#main .menu {
+    height: 80px;
+    background: rgba(0, 0, 0, 0);
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
+#main .menu .item {
+    color: #333;
     border-radius: 0!important;
-}
-
-#donation-wrapper .description {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-#donation-wrapper #wechat.active {
-    background-color: #44b549;
-}
-
-#donation-wrapper #alipay.active {
-    background-color: #059AE3;
-}
-
-#donation-wrapper #donation-qrcode img {
-    max-width: 300px;
-    margin: 20px auto;
-}
-
-#triggers-wrapper .buttons .button {
-    border-radius: 0!important;
-    background-color: #000!important;
-    padding-left: 20px!important;
-    padding-right: 20px!important;
-}
-
-#theme tr {
-    height: 30px;
-    font-size: 20px;
     cursor: pointer;
 }
 
-#theme td {
-    padding: .5em;
+#main .menu .item:hover {
+    background: rgba(172, 241, 63, 0.41);
 }
 
-.today .solar {
-    color: #cccccc;
-    font-size: 1.5em;
+#main .menu .active.item {
+    background: rgba(172, 241, 63, 0.41);
 }
 
-.today .lunar {
-    color: #000;
-    font-size: 1.8em;
+#main .menu .yang {
+    padding-top: 10px;
+    font-size: 24px;
+    color: #071e3d;
 }
 
-.uu {
-    text-align: start;
-    writing-mode: vertical-rl;
-    -moz-writing-mode: vertical-rl;
-    -webkit-writing-mode: vertical-rl;
-    -o-writing-mode: vertical-rl;
-    -ms-writing-mode: tb-rl;
-    _writing-mode: tb-rl;
+#main .menu .yin {
+    padding-bottom: 8px;
+    font-size: 12px;
+    color: #ff5959;
 }
 
-.poetry-title {
-    float: right;
+#main .menu .active .yang {
+    color: #f05d23;
 }
 
-.poetry-title .title {
-    padding-top: .5em;
-    padding-bottom: .5em;
-    font-size: 2.5em;
-    display: inline-block;
-    text-decoration: underline;
-    min-height: 200px;
-    text-align: center;
-    font-weight: 310;
+
+#main .middle {
 }
 
-.poetry-title .author {
-    background-image: url(images/yz.png);
-    border-radius: 40%;
-    background-position: 200 320;
-    opacity: 0.9;
-    padding: 1em .5em;
-    font-size: 1.5em;
-    color: #cccccc;
-    display: inline-block;
+#main #pcontent-wrapper {
+    padding: 28px 16px;
+    height: calc(100% - 116px);
+    overflow: auto;
 }
 
-.poetry-content {
-    height: 300px;
-    font-size: 1.3em;
-    line-height: 1.5em;
-    letter-spacing: 5px;
+#main .middle .meta {
+    margin: 0;
+    font-size: 1.315em;
     font-weight: 300;
+    line-height: 28px;
+    letter-spacing: 5px;
 }
 
-#pcontent {
-    white-space: pre;
-}
-
-.calendar-wrapper {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-.calendar-wrapper .column .solar {
-    font-size: 2em;
-    font-weight: bold;
-}
-
-.calendar-wrapper .active {
-    color: #FF8C31;
-}
-
-.calendar-wrapper .column {
-    text-align: center;
+#main .middle .title {
+    background: #ef5a5a;
     padding: 1em;
-    border-top: 1px dashed #ccc;
-    border-right: 1px dashed #ccc;
-    border-bottom: 1px dashed #ccc;
+    color: #fff;
+    white-space:nowrap;text-overflow:ellipsis;
 }
 
-.calendar-wrapper .column:first-child {
-    border-left: 1px dashed #ccc;
+#main .middle .author {
+    padding: 1em;
+    background: #709078;
+    color: #fff;
+    text-align: right;
+    white-space:nowrap;text-overflow:ellipsis;
 }
 
-/* Full */
-@media only screen and (min-width: 1200px) {
-    #main {
-        width: 45%;
-    }
+
+#main .middle .poetry-content p {
+    color: #333;
+    font-size: 1.315em;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 5px;
 }
 
-/* iPad */
-@media only screen and (max-width: 991px) and (min-width: 768px) {
+/* mobile */
 
-}
-
-/* iPad Pro */
-@media only screen and (max-width: 1199px) and (min-width: 992px) {
-    .poetry-content {
-        font-size: 2em;
-    }
-}
-
-/* Mobile */
 @media only screen and (max-width: 767px) {
-    body {
+    #grid>.column {
+        padding: 0!important;
+    }
+    #main .zuo .cover {
+        height: 100%;
+        width: 100%;
+    }
+    #main #grid .zuo {
+        height: 300px;
+    }
+
+    #main #grid .you {
+        height: auto!important;
+    }
+
+    #main #grid .you-wrapper {
+        position: static; 
+        height: auto;
+        width: 100%;
+        border: 0;
+    }
+
+    #main .you .middle {
+        height: auto;
+    }
+
+    #main #grid {
+        height: auto;
+    }
+
+    #main #pcontent {
+        min-height: 200px;
+        font-size: 16px;
+    }
+
+    #main #pcontent p {
+        font-size: 16px;
+    }
+
+    #main .middle .title {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    #main .middle .author {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    #main .you .top .yang {
+        font-size: 20px;
+    }
+
+    #main .you .top .today {
+        font-size: 20px;
+    }
+}
+
+/* print */
+@media print {
+    #grid {
         height: 100%;
     }
-
-    #main {
+    #grid>.column {
         width: 100%;
-        background-size: 510px 100%;
-        margin-top: 14px!important;
-        margin-left: 14px!important;
-        margin-right: 14px!important;
+    }
+    #main .zuo .cover {
+        height: 100%;
+        width: 100%;
+    }
+    #main #grid .zuo {
+        height: 45%;
     }
 
-    #main .today {
-        margin-top: 30px;
+    #main #grid .you {
+        height: 55%;
     }
 
-    .today .solar {
-        font-size: .8em;
-    }
-    
-    .today .lunar {
-        font-size: 1em;
+    #main #grid .you-wrapper {
+        height: auto;
+        width: 100%;
     }
 
-    .poetry-title .title {
-        font-size: 1em;
-        min-height: 120px;
-    }
-    
-    .poetry-title .author {
-        font-size: 0.8em;
-        background-position: 200 220;
-    }
-    
-    .poetry-content {
-        font-size: .8em;
-        line-height: 1.5em;
-        letter-spacing: 5px;
+    #main .you .middle {
+        height: auto;
     }
 
-    .calendar-wrapper .column .solar {
-        font-size: .8em;
+    #main #pcontent {
+        min-height: 200px;
+        font-size: 16px;
     }
 
-    .calendar-wrapper .column .lunar {
-        font-size: .8em;
+    #main #pcontent p {
+        font-size: 16px;
     }
 
-    .calendar-wrapper .column {
-        padding: 1em .5em!important;
+    #main .middle .title {
+        padding: 8px 16px;
+        font-size: 16px;
     }
 
-    #donation-wrapper #donation-qrcode img {
-        height: 300px;
-        max-width: 200px;
+    #main .middle .author {
+        padding: 8px 16px;
+        font-size: 16px;
     }
-}  
 
+    #main .you .top .yang {
+        font-size: 20px;
+    }
 
-@media print {
-    #main .inner #inner-top {
-        display: none;
+    #main .you .top .today {
+        font-size: 20px;
     }
 }
