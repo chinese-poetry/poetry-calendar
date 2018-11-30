@@ -1,217 +1,141 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
+        <title>诗词日历</title>
+        <meta name="author"  content="JackeyGao">
+        <meta name="description" content="JackeyGao, 一个程序员的技术分享和对生活的理解.">
+        <meta name="keywords"  content="JackeyGao, JackeyGao的日记本, Python, Django, Vue.js, chinese-poetry">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>诗词周历</title>
         <link rel="stylesheet" href="assets/global.css">
-        <link rel="stylesheet" href="assets/skin.css">
-        <link rel="stylesheet" href="assets/semantic/components/container.min.css">
+        <link rel="stylesheet" href="assets/theme.css">
+        <link rel="stylesheet" href="assets/semantic/components/site.min.css">
         <link rel="stylesheet" href="assets/semantic/components/grid.min.css">
-        <link rel="stylesheet" href="assets/semantic/components/button.min.css">
-        <link rel="stylesheet" href="assets/semantic/components/icon.min.css">
-        <link rel="shortcut icon" href="assets/images/favicon_48_48.ico">
+        <link rel="stylesheet" href="assets/semantic/components/menu.min.css">
+        
+        <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/favicons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+        <link rel="manifest" href="assets/images/favicons/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="assets/images/favicons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
     </head>
-    <body class="mo">
-        <div id="main" class="ui container">
-            <div style="position: absolute; top: -400px;">
-                <img src="assets/images/c.jpeg" />
-            </div>
-            <div class="inner">
-                <div id="inner-top" style="height: 5px; margin-left: -14px; margin-right: -14px;"></div>
-                <div id="site-wrapper" style="display: none;" class="topwrapper">
-                    <h2>诗词周历</h2>
-                    <div class="description">
-                        <i class="teal quote left icon"></i>
-                        精心挑选53首诗词，精彩你的整年生活。常来看看， 愿你举手投足都是诗。 看见一场雨，我希望你会想起野渡横舟，曲中折柳；想起对长亭晚，深巷杏花；想起山色空濛，水光潋滟；想起暮烟枫桥，垂下帘栊。看见湖光山色，就会想起高山寒树，猿啼无绝；想起阴晴众壑，绝巘怪柏；鹤汀凫渚，绛皓驳色；想起水光潋滟，烟雨楼台。 而不是，车要堵了， 我要迟到了。
-                        <i class="teal quote right icon"></i>
-                    </div>
-                    <div class="ui black buttons">
-                        <button onclick="last()" class="ui secondary icon button">
-                            <i class="teal arrow left icon"></i>
-                        </button>
-                        <button onclick="today()" class="ui secondary icon button">
-                            今日
-                        </button>
-                        <button onclick="next()" class="ui secondary icon button">
-                            <i class="teal arrow right icon"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div id="skin-wrapper" style="display: none;" class="topwrapper">
-                    <h2>外观选择</h2>
-                    <table id="theme" style="width: 100%;">
-                        <tbody>
-                            <tr onclick="document.body.className = 'mo'; localStorage.setItem('skin', 'mo');">
-                                <td align="right">水墨逢丹青</td>
-                                <td width="50%;"><div style="width: 100%;height: 25px;" class="mo"></div></td>
-                            </tr>
-                            <tr onclick="document.body.className = 'jiangzi'; localStorage.setItem('skin', 'jiangzi');">
-                                <td align="right">绛紫沁素白</td>
-                                <td width="50%;"><div style="width: 100%;height: 25px;" class="jiangzi"></div></td>
-                            </tr>
-                            <tr onclick="document.body.className = 'shenyanhong'; localStorage.setItem('skin', 'shenyanhong');">
-                                <td align="right">深胭红枯绿</td>
-                                <td width="50%;"><div style="width: 100%;height: 25px;" class="shenyanhong"></div></td>
-                            </tr>
-                            <tr onclick="document.body.className = 'labai'; localStorage.setItem('skin', 'labai');">
-                                <td align="right">西窗透蜡白</td>
-                                <td width="50%;"><div style="width: 100%;height: 25px;" class="labai"></div></td>
-                            </tr>
-                            <tr onclick="document.body.className = 'jiehong'; localStorage.setItem('skin', 'jiehong');">
-                                <td align="right">橘红蘸溪湿</td>
-                                <td width="50%;"><div style="width: 100%;height: 25px;" class="jiehong"></div></td>
-                            </tr>
-                            <tr onclick="document.body.className = 'hongzhu'; localStorage.setItem('skin', 'hongzhu');">
-                                <td align="right">红烛昏罗帐</td>
-                                <td width="50%;"><div style="width: 100%;height: 25px;" class="hongzhu"></div></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div id="social-links-wrapper" style="display: none;" class="topwrapper">
-                    <a href="https://jackeygao.io">
-                        <button class="ui mini orange circular icon button">
-                            <i class="rss square icon"></i>
-                        </button>
-                    </a>
-                    <a href="/cdn-cgi/l/email-protection#3b5c5a54514e554a527b544e4f5754545015585456">
-                        <button class="ui mini red circular icon button">
-                            <i class="mail icon"></i>
-                        </button>
-                    </a>
-                    <a href="https://github.com/jackeygao">
-                        <button class="ui mini grey circular github icon button">
-                          <i class="github icon"></i>
-                        </button>
-                    </a>
-                    <a href="https://twitter.com/JackeyGaoo">
-                        <button class="ui mini circular twitter icon button">
-                          <i class="twitter icon"></i>
-                        </button>
-                    </a>
-                    <button onclick="toggleWechat()" class="ui mini green circular icon button">
-                        <i class="wechat icon"></i>
-                    </button>
-                    
-                    <div id="wx" style="display: none;">
-                        <img src="assets/images/wx.jpeg" />
-                    </div>
-                </div>
-
-                <div id="donation-wrapper" style="display: none;" class="topwrapper">
-                    <div class="ui container" style="text-align: center;">
-                        <div class="description">
-                            <i class="teal quote left icon"></i>
-                            如果觉得此项目对您有用，请随意打赏。
-                            <i class="teal quote right icon"></i>
-                        </div>
-        
-                        <div class="ui buttons">
-                            <button onclick="useWechat()" id="wechat" class="ui active secondary icon button">
-                                微信
-                            </button>
-                            <button onclick="useAlipay()" id="alipay" class="ui secondary icon button">
-                                支付宝
-                            </button>
-                        </div>
-        
-                        <div id="donation-qrcode">
-                            <img id="wechat-qrcode-image" src="assets/images/wechat.png">
-                            <img id="alipay-qrcode-image" src="assets/images/alipay.jpg">
-                            <!-- <img id="donation-qrcode-image" src="/assets/images/wechat.png"> -->
+    
+    <body>
+        <div id="main">
+            <div class="container">
+            <div id="grid" class="ui stackable two column grid">
+                <div class="zuo column">
+                    <div id="imageCover" class="cover" style="background-image: url('assets/images/thumb.jpg');">
+                        <div class="intro">
+                            <div class="inner">
+                            来自: <a id="imageLink" href="https://jackeygao.io" target="blank">JackeyGao</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="triggers-wrapper">
-                    <div class="ui black mini buttons">
-                        <button onclick="toggleById(wrappers, 'site-wrapper')" class="ui secondary icon button">
-                            <i class="list layout icon"></i>
-                        </button>
-                        <button onclick="toggleById(wrappers, 'skin-wrapper')" class="ui secondary icon button">
-                            <i class="snowflake icon"></i>
-                        </button>
-                        <button onclick="toggleById(wrappers, 'social-links-wrapper')" class="ui secondary icon button">
-                            <i class="linkify icon"></i>
-                        </button>
-                        <button onclick="toggleById(wrappers, 'donation-wrapper')" class="ui secondary icon button">
-                            <i class="red heart icon"></i>
-                        </button>
+                <div class="you column">
+                    <div class="you-wrapper">
+                    <div class="ui top equal width top grid">
+                        <div class="l ten wide column">
+                            <div id="todaySolar" class="yang">2018.11.30 周五</div>
+                        </div>
+                        <div class="r column">
+                            <div id="todayLunar" class="today">十月廿三</div>
+                        </div>
                     </div>
-                </div> 
-                <div class="today">
-                    <div id="todaySolar" class="solar">2018年01月20日</div>
-                    <div id="todayLunar" class="lunar">腊月初四</div>
-                </div>
 
-                <div class="ui equal width grid">
-                    <div class="thirteen wide column poetry-wrapper" style="padding: 0;">
-                        <table style="width: 100%;">
-                            <tr>
-                                <td valign="middle" align="center" class="poetry-content">
-                                    <div id="pcontent" class="uu">
-    别来春半,
-    触目柔肠断。
-    砌下落梅如雪乱，
-    拂了一身还满。
-    雁来音信无凭，
-    路遥归梦难成。
-    离恨恰如春草，
-    更行更远还生。
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
+                    <div class="middle">
+                        <div class="ui top equal width grid meta">
+                            <div class="l ten wide column">
+                                <div id="ptitle" class="title">虞美人</div>
+                            </div>
+                            <div class="r column">
+                                <div id="pauthor" class="author">李煜</div>
+                            </div>
+                        </div>
+                        <div id="pcontent-wrapper">
+                            <div id="pcontent" class="poetry-content uu">
+                                <p>春花秋月何时了，往事知多少？</p>
+                 
+                                <p>小楼昨夜又东风，故国不堪回首月明中。</p>
+                 
+                                <p>雕栏玉砌应犹在，只是朱颜改。</p>
+                 
+                                <p>问君能有几多愁？恰似一江春水向东流。</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="two wide column poetry-title uu" style="padding: 0;">
-                        <div id="ptitle" class="title">清平乐·别来春半</div>
-                        <div id="pauthor" class="author">李煜</div>
-                    </div>
-                </div>
 
-                <div class="calendar-wrapper">
-                    <div class="ui equal width grid">
-                        <div class="calendar row">
-                            <div id="w1" class="column w1">
-                                <div class="solar">1</div>
-                                <div class="lunar">周一</div>
+                    <div class="calendar">
+                        <div class="ui seven item menu">
+                            <div id="w1" data-date="2018-08-01" class="item">
+                                <div>
+                                    <div class="yang">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
                             </div>
-                            <div id="w2" class="column w2">
-                                <div class="solar">2</div>
-                                <div class="lunar">周二</div>
+                            <div id="w2" class="item">
+                                <div>
+                                    <div class="yang">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
                             </div>
-                            <div id="w3" class="column w3">
-                                <div class="solar">3</div>
-                                <div class="lunar">周三</div>
+                            <div id="w3" class="item">
+                                <div>
+                                    <div class="yang header">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
                             </div>
-                            <div id="w4" class="column w4">
-                                <div class="solar">4</div>
-                                <div class="lunar">周四</div>
+                            <div id="w4" class="item">
+                                <div>
+                                    <div class="yang header">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
                             </div>
-                            <div id="w5" class="column w5">
-                                <div class="solar">5</div>
-                                <div class="lunar">周五</div>
+                            <div id="w5" class="item">
+                                <div>
+                                    <div class="yang header">27</div>
+                                    <div class="yin">二十</div>
+                                </div>
                             </div>
-                            <div id="w6" class="column w6">
-                                <div class="solar">6</div>
-                                <div class="lunar">周六</div>
+                            <div id="w6" class="item">
+                                <div>
+                                    <div class="yang header">28</div>
+                                    <div class="yin">廿一</div>
+                                </div>
                             </div>
-                            <div id="w7" class="column w7">
-                                <div class="solar">7</div>
-                                <div class="lunar">周日</div>
+                            <div id="w7" class="item">
+                                <div>
+                                    <div class="yang header">29</div>
+                                    <div class="yin">廿二</div>
+                                </div>
                             </div>
-                        </div>    
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-
     <script src="assets/js/calendar.js"></script>
     <script src="assets/js/web.js"></script>
     <script src="assets/js/节日表.js"></script>
     <script src="assets/js/诗词表.js"></script>
+    <script src="assets/js/images.js"></script>
+    <script src="assets/js/tang300.js"></script>
 
     <script>
         var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper", "skin-wrapper"]
@@ -222,19 +146,36 @@
 
             var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
 
-            var lunarDate = day.gzYear + day.IMonthCn + day.IDayCn;
+            var lunarDate = day.gzYear + '·' + day.IMonthCn + day.IDayCn;
             var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
 
             document.getElementById("todayLunar").innerHTML = lunarDate
             document.getElementById("todaySolar").innerHTML = solarDate
 
+            // images
+            var image = images[Math.floor(Math.random() * images.length)];
+            console.log("url('images/" + image.src + "');")
+            document.getElementById("imageCover").style.backgroundImage = "url('images/" + image.src + "')";
+            document.getElementById("imageLink").href = image.link;
+            document.getElementById("imageLink").innerText = image.author;
+
             // Poetry
             var poetry = weekPoetry[currentWeekNumber[1] - 1]
-            if (poetry) {
-                document.getElementById("pcontent").innerHTML = poetry.content
-                document.getElementById("ptitle").innerHTML = poetry.title
-                document.getElementById("pauthor").innerHTML = poetry.author
+
+            if (!poetry) {
+                var poetry = poetrys[Math.floor(Math.random() * poetrys.length)];
+                poetry.content = poetry.paragraphs
             }
+
+            if (poetry.dynasty) {
+                var author = poetry.dynasty + '·' + poetry.author;
+            } else {
+                var author = poetry.author;
+            }
+
+            setContentP(poetry.content)
+            document.getElementById("ptitle").innerHTML = poetry.title
+            document.getElementById("pauthor").innerHTML = author
 
             var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
 
@@ -260,9 +201,9 @@
                     el.classList.remove("active")
                 }
 
-                el.getElementsByClassName("solar")[0].innerHTML = lunar.cDay
+                el.getElementsByClassName("yang")[0].innerHTML = lunar.cDay
 
-                var lunarElement = el.getElementsByClassName("lunar")[0]
+                var lunarElement = el.getElementsByClassName("yin")[0]
 
                 var nextDay = new Date(solar.getFullYear(),  solar.getMonth(), solar.getDate())
                 nextDay.setDate(solar.getDate() + 1);
@@ -303,14 +244,5 @@
         }
 
         render(new Date());
-        useWechat();
-
-        var skin = localStorage.getItem('skin');
-
-        if (skin) {
-            document.body.className = skin;
-        } else {
-            localStorage.setItem('skin', 'mo');
-        }
     </script>
 </html>
