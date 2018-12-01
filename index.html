@@ -160,7 +160,7 @@
             var currentMonday = monDay(t);
             var currentWeeks = weekDays(currentMonday);
 
-            var day = calendar.solar2lunar(t.getFullYear(), t.getMonth(), t.getDate());
+            var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
 
             var lunarDate = day.gzYear + '·' + day.IMonthCn + day.IDayCn;
             var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
@@ -214,10 +214,13 @@
 
 
                 if (id === 'w7') {
+                    titleSolar = firstSolar + '-' + lunar.cMonth + '.' + lunar.cDay + ''
                     firstSolar = firstSolar + '~' + lunar.cMonth + '.' + lunar.cDay + ''
                     firstLunar = firstLunar + '~' + lunar.IMonthCn + lunar.IDayCn;
                     document.getElementById("firstSolar").innerHTML = firstSolar
                     document.getElementById("firstLunar").innerHTML = firstLunar
+
+                    document.title = '诗词周历' + titleSolar;
                 }
 
                 var el = document.getElementById(id);
@@ -275,6 +278,6 @@
             }
         }
 
-        render(new Date(2019,02,14));
+        render(new Date());
     </script>
 </html>
