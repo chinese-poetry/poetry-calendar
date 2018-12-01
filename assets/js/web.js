@@ -1,4 +1,4 @@
-window.day = 0;
+window.day = new Date();
 
 function weekDays(current) {
     var week= new Array(); 
@@ -94,11 +94,8 @@ function toggleById(ids, id) {
 }
 
 function next() {
-    var today = new Date();
-    var nextDay = new Date();
-    nextDay.setDate(today.getDate() + window.day + 1);
-    window.day = window.day + 1
-    render(nextDay)
+    window.day.setDate(window.day.getDate() + 1);
+    render(window.day)
 }
 
 function today() {
@@ -106,11 +103,8 @@ function today() {
 }
 
 function last() {
-    var today = new Date();
-    var nextDay = new Date();
-    nextDay.setDate(today.getDate() + window.day - 1);
-    window.day = window.day - 1
-    render(nextDay)
+    window.day.setDate(window.day.getDate() - 1);
+    render(window.day)
 }
 
 function setContentP (content) {

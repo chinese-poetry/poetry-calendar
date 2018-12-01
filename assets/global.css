@@ -376,12 +376,12 @@ body ::-webkit-scrollbar {
     }
 
     #main #grid .you-wrapper {
-        height: auto;
+        height: 100%;
         width: 100%;
+        position: static;
     }
 
     #main .you .middle {
-        height: auto;
     }
 
     #main #pcontent {
@@ -391,6 +391,7 @@ body ::-webkit-scrollbar {
 
     #main #pcontent p {
         font-size: 16px;
+        line-height: 1.2em;
     }
 
     #main .middle .title {
@@ -404,7 +405,10 @@ body ::-webkit-scrollbar {
     }
 
     #main #pcontent-wrapper {
-        height: calc(100% - 45% - 60px - 60px - 68px);
+        padding: 0px 16px;
+        height: calc(100% - 60px);
+        overflow: visible;
+        overflow-y: auto;
     }
 
     #main .you .top .yang {

@@ -59,12 +59,12 @@
 
                     <div class="ui top only-screen equal width top grid">
                         <div class="l ten wide column">
-                            <div id="firstSolar" class="yang">2018.11.30 周五</div>
                             <div id="todaySolar" class="yang">2018.11.30 周五</div>
+                            <div id="firstSolar" class="yang">2018.11.30</div>
                         </div>
                         <div class="r column">
                             <div onclick="today()" id="todayLunar" class="today">十月廿三</div>
-                            <div id="firstLunar" class="today">十月廿三</div>
+                            <div onclick="today()" id="firstLunar" class="today">十月廿三</div> ~
                         </div>
                     </div>
 
@@ -155,11 +155,12 @@
     <script>
         var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper", "skin-wrapper"]
         function render(t) {
+            window.day = t;
             var currentWeekNumber = weekNumber(t);
             var currentMonday = monDay(t);
             var currentWeeks = weekDays(currentMonday);
 
-            var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
+            var day = calendar.solar2lunar(t.getFullYear(), t.getMonth(), t.getDate());
 
             var lunarDate = day.gzYear + '·' + day.IMonthCn + day.IDayCn;
             var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
@@ -192,6 +193,9 @@
             document.getElementById("pauthor").innerHTML = author
 
             var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
+            var firstSolar = ""
+            var firstLunar = ""
+
 
             for (var i in weekIds) {
                 var id = weekIds[i];
@@ -202,9 +206,18 @@
                     solar.getDate()
                 );
 
+
                 if (id === 'w1') {
-                    document.getElementById("firstSolar").innerHTML = day.cMonth + '月' + day.cDay + '号';
-                    document.getElementById("firstLunar").innerHTML = lunar.IMonthCn + lunar.IDayCn;
+                    firstSolar = firstSolar + lunar.cMonth + '.' + lunar.cDay + ''
+                    firstLunar = firstLunar + lunar.IMonthCn + lunar.IDayCn;
+                }
+
+
+                if (id === 'w7') {
+                    firstSolar = firstSolar + '~' + lunar.cMonth + '.' + lunar.cDay + ''
+                    firstLunar = firstLunar + '~' + lunar.IMonthCn + lunar.IDayCn;
+                    document.getElementById("firstSolar").innerHTML = firstSolar
+                    document.getElementById("firstLunar").innerHTML = firstLunar
                 }
 
                 var el = document.getElementById(id);
@@ -262,6 +275,6 @@
             }
         }
 
-        render(new Date());
+        render(new Date(2019,02,14));
     </script>
 </html>
