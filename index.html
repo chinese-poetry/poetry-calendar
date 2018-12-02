@@ -281,9 +281,9 @@
         // render(new Date());
         var url = new URL(window.location.href);
         var d = url.searchParams.get("d");
-        var today = new Date(d);
+        var renderDate = new Date(d);
         if (d !== null) {
-            render(today)
+            render(renderDate)
         } else {
             render(new Date()) 
         }
