@@ -34,10 +34,10 @@
     </head>
     
     <body>
-        <div id="main" style="background-image: url('assets/images/ying.png');">
+        <div id="main" >
             <div class="container">
-            <div id="grid" class="ui stackable two column grid">
-                <div class="zuo column">
+            <div id="grid" class="ui stackable two column grid" style="background-image: url('assets/images/mei.png'); background-size: cover; margin: 0!important;">
+                <div class="zuo column" style="background: rgba(255, 255, 255, 0.6);">
                     <div id="imageCover" class="cover">
                         <div class="intro">
                             <div class="inner">
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="you column">
-                    <div class="you-wrapper">
+                    <div class="you-wrapper" style="background: rgba(255, 255, 255, 0.6);">
 
                     <div class="ui top only-screen equal width top grid">
                         <div class="l ten wide column">
@@ -208,19 +208,19 @@
 
 
                 if (id === 'w1') {
-                    firstSolar = firstSolar + lunar.cMonth + '.' + lunar.cDay + ''
-                    firstLunar = firstLunar + lunar.IMonthCn + lunar.IDayCn;
+                    firstSolar = firstSolar + pad(lunar.cMonth) + '.' + pad(lunar.cDay) + ''
+                    firstLunar = firstLunar + pad(lunar.IMonthCn) + pad(lunar.IDayCn);
                 }
 
 
                 if (id === 'w7') {
-                    titleSolar = firstSolar + '-' + lunar.cMonth + '.' + lunar.cDay + ''
-                    firstSolar = firstSolar + '~' + lunar.cMonth + '.' + lunar.cDay + ''
-                    firstLunar = firstLunar + '~' + lunar.IMonthCn + lunar.IDayCn;
+                    titleSolar = lunar.cYear + '-' + '第' + pad(currentWeekNumber[1]) + '周';
+                    firstSolar = firstSolar + '~' + pad(lunar.cMonth) + '.' + pad(lunar.cDay) + ''
+                    firstLunar = firstLunar + '~' + pad(lunar.IMonthCn) + pad(lunar.IDayCn);
                     document.getElementById("firstSolar").innerHTML = firstSolar
                     document.getElementById("firstLunar").innerHTML = firstLunar
 
-                    document.title = '诗词周历' + titleSolar;
+                    document.title = '诗词周历-' + titleSolar + '-' + firstSolar;
                 }
 
                 var el = document.getElementById(id);
@@ -278,6 +278,14 @@
             }
         }
 
-        render(new Date());
+        // render(new Date());
+        var url = new URL(window.location.href);
+        var d = url.searchParams.get("d");
+        var today = new Date(d);
+        if (d !== null) {
+            render(today)
+        } else {
+            render(new Date()) 
+        }
     </script>
 </html>
