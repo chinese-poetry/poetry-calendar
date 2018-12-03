@@ -36,7 +36,7 @@
     <body>
         <div id="main" >
             <div class="container">
-            <div id="grid" class="ui stackable two column grid" style="background-image: url('assets/images/mei.png'); background-size: cover; margin: 0!important;">
+            <div id="grid" class="ui stackable two column grid">
                 <div class="zuo column" style="background: rgba(255, 255, 255, 0.6);">
                     <div id="imageCover" class="cover">
                         <div class="intro">
@@ -156,6 +156,12 @@
         var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper", "skin-wrapper"]
         function render(t) {
             window.day = t;
+            var ji = getJijie(t)
+            var jijieFlower = JIJIEMAP[ji]
+            console.log(ji, jijieFlower)
+            // 季节花
+            document.getElementById("grid").style.backgroundImage = "url('assets/images/" + jijieFlower + ".png')";
+
             var currentWeekNumber = weekNumber(t);
             var currentMonday = monDay(t);
             var currentWeeks = weekDays(currentMonday);

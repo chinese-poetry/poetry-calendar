@@ -29,6 +29,10 @@ body ::-webkit-scrollbar {
 
 #main #grid {
     height: 100%;
+    background-size: contain;
+    margin: 0!important;
+    background-repeat: no-repeat;
+    background-position: right bottom;
 }
 
 
@@ -304,6 +308,7 @@ body ::-webkit-scrollbar {
 
     #main #grid {
         height: auto;
+        background-position: center 300px;
     }
 
     #main #pcontent {
@@ -358,8 +363,9 @@ body ::-webkit-scrollbar {
 
 /* print */
 @media print {
-    #grid {
+    #main #grid {
         height: 100%;
+        background-position: center 300px;
     }
     #grid>.column {
         width: 100%;
