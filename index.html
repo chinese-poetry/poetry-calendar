@@ -57,35 +57,44 @@
                 <div class="you column">
                     <div class="you-wrapper" style="background: rgba(255, 255, 255, 0.6);">
 
-                    <div class="ui top only-screen equal width top grid">
+                    <div class="ui today only-screen equal width grid">
                         <div class="l ten wide column">
                             <div id="todaySolar" class="yang">2018.11.30 周五</div>
                             <div id="firstSolar" class="yang">2018.11.30</div>
                         </div>
                         <div class="r column">
-                            <div onclick="today()" id="todayLunar" class="today">十月廿三</div>
-                            <div onclick="today()" id="firstLunar" class="today">十月廿三</div> ~
+                            <div onclick="today()" id="todayLunar" class="yin">十月廿三</div>
+                            <div onclick="today()" id="firstLunar" class="yin">十月廿三</div>
                         </div>
                     </div>
 
                     <div class="middle">
-                        <div class="ui top equal width grid meta">
-                            <div class="l ten wide column">
-                                <div id="ptitle" class="title">虞美人</div>
+                        <div class="ui pinfo equal width grid meta">
+                            <div id="ptitle" class="l title ten wide column">
+                                虞美人
                             </div>
-                            <div class="r column">
-                                <div id="pauthor" class="author">李煜</div>
+                            <div id="pauthor" class="r author column">
+                                李煜
                             </div>
                         </div>
                         <div id="pcontent-wrapper">
-                            <div id="pcontent" class="poetry-content uu">
-                                <p>春花秋月何时了，往事知多少？</p>
-                 
-                                <p>小楼昨夜又东风，故国不堪回首月明中。</p>
-                 
-                                <p>雕栏玉砌应犹在，只是朱颜改。</p>
-                 
-                                <p>问君能有几多愁？恰似一江春水向东流。</p>
+                            <div id="pcontent-grid" class="ui equal width grid">
+                                <div class="l twelve wide column">
+                                    <div id="pcontent" class="poetry-content">
+                                        <p>春花秋月何时了，往事知多少？</p>
+                                    
+                                        <p>小楼昨夜又东风，故国不堪回首月明中。</p>
+                                    
+                                        <p>雕栏玉砌应犹在，只是朱颜改。</p>
+                                    
+                                        <p>问君能有几多愁？恰似一江春水向东流。</p>
+                                    </div>
+                                </div>
+                                <div class="r column">
+                                    <div class="meta">
+                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -292,6 +301,6 @@
             render(renderDate)
         } else {
             render(new Date()) 
-        }
+        } 
     </script>
 </html>

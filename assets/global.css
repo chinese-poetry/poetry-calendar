@@ -126,45 +126,53 @@ body ::-webkit-scrollbar {
     background: rgba(255, 255, 255, 0.45);
 }
 
-#main .you .top {
+#main .you .today {
     height: 60px;
     margin: 0;
 }
 
-#main .you .top .column {
-    padding: 0;
+#main .you .today .column {
+    padding: 0 1em;
+    line-height: 60px;
+}
+
+#main .you .middle .pinfo {
+    height: 60px;
+    margin: 0;
+}
+
+#main .you .middle .pinfo .column {
+    padding: 0 1em;
+    line-height: 60px;
 }
 
 #main .you .middle {
-    height: calc(100% - (60px + 108px));
+    height: calc(100% - (60px + 80px));
 }
 
 
-#main .you .top .today {
+#main .you .today .yin {
     height: 60px;
     text-align: right;
     line-height: 60px;
     font-size: 2em;
     font-weight: 400;
-    padding-right: 16px;
     color: #333;
     opacity: .8;
     cursor: pointer;
 }
 
-#main .you .top .yang {
+#main .you .today .yang {
     display: inline-block;
     height: 60px;
-    line-height: 60px;
     font-size: 2em;
     font-weight: 300;
-    padding-left: 16px;
     color:#488b8f;
 }
 
 #main .calendar {
     height: auto;
-    padding: 14px;
+    padding: 0px 14px;
 }
 
 #main .footer {
@@ -236,32 +244,48 @@ body ::-webkit-scrollbar {
 }
 
 #main #pcontent-wrapper {
-    padding: 28px 16px;
-    height: calc(100% - 116px);
+    height: calc(100% - 60px);
     overflow: auto;
 }
 
-#main .middle .meta {
-    margin: 0;
-    font-size: 1.315em;
-    font-weight: 300;
-    line-height: 28px;
-    letter-spacing: 5px;
+#main .middle .pinfo .l.column {
+    background: rgba(239, 90, 90, .7);
 }
 
-#main .middle .title {
-    background: rgba(239, 90, 90, .7);
-    padding: 1em;
+#main .middle .pinfo .r.column {
+    background: rgba(80, 128, 92, 0.7);
+}
+
+#main .middle .pinfo .title {
     color: #fff;
+    font-size: 1.315em;
     white-space:nowrap;text-overflow:ellipsis;
 }
 
-#main .middle .author {
-    padding: 1em;
-    background: rgba(80, 128, 92, 0.7);
+#main .middle .pinfo .author {
     color: #fff;
     text-align: right;
+    font-size: 1.315em;
     white-space:nowrap;text-overflow:ellipsis;
+}
+
+#main #pcontent-grid {
+    height: 100%;
+    margin: 0;
+}
+
+#main #pcontent-grid>.column {
+    padding: 0;
+}
+
+#main #pcontent-wrapper .meta {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+}
+
+#main .middle .poetry-content {
+    padding: 16px;
 }
 
 
@@ -273,8 +297,23 @@ body ::-webkit-scrollbar {
     letter-spacing: 5px;
 }
 
-#main .you .top #firstLunar, #main .you .top #firstSolar {
+#main .you .today #firstLunar, #main .you .today #firstSolar {
     display: none;
+}
+
+#main .middle .uu {
+    text-align: start;
+    writing-mode: vertical-rl;
+    -moz-writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    -o-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    _writing-mode: tb-rl;
+}
+
+#main .middle .uu p {
+    line-height: 2em;
+    letter-spacing: 6px;
 }
 
 /* mobile */
@@ -293,6 +332,10 @@ body ::-webkit-scrollbar {
 
     #main #grid .you {
         height: auto!important;
+    }
+
+    #main #pcontent-grid .l.column {
+        width: 100%!important;
     }
 
     #main #grid .you-wrapper {
@@ -317,24 +360,23 @@ body ::-webkit-scrollbar {
     }
 
     #main #pcontent p {
+        line-height: 1.5em;
         font-size: 16px;
     }
 
-    #main .middle .title {
-        padding: 8px 16px;
+    #main .middle .pinfo .title {
         font-size: 16px;
     }
 
-    #main .middle .author {
-        padding: 8px 16px;
+    #main .middle .pinfo .author {
         font-size: 16px;
     }
 
-    #main .you .top .yang {
+    #main .you .today .yang {
         font-size: 20px;
     }
 
-    #main .you .top .today {
+    #main .you .today .yin {
         font-size: 20px;
     }
 
@@ -347,18 +389,20 @@ body ::-webkit-scrollbar {
     }
 
     #main .calendar {
-        padding: 1px;
+        padding: 0px;
     }
 
+    /*
     #main .menu .item:first-child {
         border-left: 0;
         width: calc(14.285% - 1px);
     }
 
-    #main .menu .item:end-child {
+    #main .menu .item:last-child {
         border-right: 0;
         width: calc(14.285% - 1px);
     }
+    */
 }
 
 /* print */
@@ -375,11 +419,11 @@ body ::-webkit-scrollbar {
         width: 100%;
     }
     #main #grid .zuo {
-        height: 45%;
+        height: 40%;
     }
 
     #main #grid .you {
-        height: 55%;
+        height: 60%;
     }
 
     #main #grid .you-wrapper {
@@ -392,7 +436,6 @@ body ::-webkit-scrollbar {
     }
 
     #main #pcontent {
-        height: 100%;
         font-size: 16px;
     }
 
@@ -401,35 +444,32 @@ body ::-webkit-scrollbar {
         line-height: 1.2em;
     }
 
-    #main .middle .title {
-        padding: 8px 28px;
+    #main .middle .pinfo .title {
         font-size: 16px;
     }
 
-    #main .middle .author {
-        padding: 8px 28px;
+    #main .middle .pinfo .author {
         font-size: 16px;
     }
 
     #main #pcontent-wrapper {
-        padding: 0px 16px;
         height: calc(100% - 60px);
         overflow: visible;
         overflow-y: auto;
     }
 
-    #main .you .top .yang {
+    #main .you .today .yang {
         font-size: 20px;
     }
 
-    #main .you .top .today {
+    #main .you .today .yin {
         font-size: 20px;
     }
-    #main .zuo .cover .inner, #main .you .top #todayLunar, #main .you .top #todaySolar {
+    #main .zuo .cover .inner, #main .you .today #todayLunar, #main .you .today #todaySolar {
         display: none; 
     }
 
-    #main .you .top #firstLunar, #main .you .top #firstSolar {
+    #main .you .today #firstLunar, #main .you .today #firstSolar {
         display: block;
     }
     #main .you .you-wrapper {
@@ -441,5 +481,9 @@ body ::-webkit-scrollbar {
     }
     #main .you .menu .active .yang {
         color: #071e3d!important;
+    }
+
+    #main .calendar {
+        padding: 0px 0px;
     }
 }
