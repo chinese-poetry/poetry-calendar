@@ -406,7 +406,7 @@ body ::-webkit-scrollbar {
 }
 
 /* print */
-@media print {
+@media print and (orientation:portrait) {
     #main #grid {
         height: 100%;
         background-position: center 300px;
@@ -485,5 +485,61 @@ body ::-webkit-scrollbar {
 
     #main .calendar {
         padding: 0px 0px;
+    }
+}
+
+@media print and (orientation:landscape) {
+    #main .zuo .cover {
+        width: 100%;
+    }
+
+    #main .you .you-wrapper {
+        width: calc(100% - 1px);
+        border-left: 0!important;
+    }
+
+    #main .zuo .cover .inner, #main .you .today #todayLunar, #main .you .today #todaySolar {
+        display: none; 
+    }
+
+    #main .you .today #firstLunar, #main .you .today #firstSolar {
+        display: block;
+        font-size: 18px;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    /* top today grid */
+
+    #main .today.grid .column {
+        width: 50%!important;
+        padding: 0;
+    }
+
+    #main .pinfo.grid .column {
+        width: calc(50% - 2em)!important;
+    }
+
+    /* font-size */
+    #main .middle .pinfo .title {
+        font-size: 16px;
+    }
+
+    #main .middle .pinfo .author {
+        font-size: 16px;
+    }
+    #main .middle .poetry-content p {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    #main .calendar {
+        padding: -1px;
+    }
+    #main .you .menu .active {
+        background: rgba(255, 255, 255, 0); 
+    }
+    #main .you .menu .active .yang {
+        color: #071e3d!important;
     }
 }
