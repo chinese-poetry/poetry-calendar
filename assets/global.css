@@ -13,11 +13,9 @@ body ::-webkit-scrollbar {
     width: 100%;
     background-position: right;
     background-repeat: no-repeat;
-    font-family: "Kaiti SC";
 }
 
 #main .ui.menu {
-    font-family: "Kaiti SC";
 }
 
 #main .container {
