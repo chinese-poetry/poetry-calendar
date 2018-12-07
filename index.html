@@ -163,6 +163,7 @@
 
     <script>
         var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper", "skin-wrapper"]
+        var allImages = Object.values(images)
         function render(t) {
             window.day = t;
             var ji = getJijie(t)
@@ -183,11 +184,6 @@
             document.getElementById("todayLunar").innerHTML = lunarDate
             document.getElementById("todaySolar").innerHTML = solarDate
 
-            // images
-            var image = images[Math.floor(Math.random() * images.length)];
-            document.getElementById("imageCover").style.backgroundImage = "url('images/" + image.src + "')";
-            document.getElementById("imageLink").href = image.link;
-            document.getElementById("imageLink").innerHTML = image.author;
 
             // Poetry
             var poetry = weekPoetry[currentWeekNumber[1] - 1]
@@ -197,6 +193,18 @@
                 poetry.content = poetry.paragraphs
             }
 
+            // images
+            if (poetry.image) {
+                var image = images[poetry.image]
+            } else {
+                var image = allImages[Math.floor(Math.random() * allImages.length)];
+            }
+
+            document.getElementById("imageCover").style.backgroundImage = "url('images/" + image.src + "')";
+            document.getElementById("imageLink").href = image.link;
+            document.getElementById("imageLink").innerHTML = image.author;
+
+            // dynasty
             if (poetry.dynasty) {
                 var author = poetry.dynasty + '·' + poetry.author;
             } else {

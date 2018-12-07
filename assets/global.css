@@ -13,6 +13,11 @@ body ::-webkit-scrollbar {
     width: 100%;
     background-position: right;
     background-repeat: no-repeat;
+    font-family: "Kaiti SC";
+}
+
+#main .ui.menu {
+    font-family: "Kaiti SC";
 }
 
 #main .container {
@@ -168,6 +173,7 @@ body ::-webkit-scrollbar {
     font-size: 2em;
     font-weight: 300;
     color:#488b8f;
+    letter-spacing: 3px;
 }
 
 #main .calendar {
@@ -231,7 +237,7 @@ body ::-webkit-scrollbar {
 
 #main .menu .yin {
     padding-bottom: 8px;
-    font-size: 12px;
+    font-size: 16px;
     color: #ff5959;
 }
 
@@ -436,20 +442,21 @@ body ::-webkit-scrollbar {
     }
 
     #main #pcontent {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     #main #pcontent p {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 1.2em;
+        font-weight: 400;
     }
 
     #main .middle .pinfo .title {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     #main .middle .pinfo .author {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     #main #pcontent-wrapper {
@@ -459,11 +466,13 @@ body ::-webkit-scrollbar {
     }
 
     #main .you .today .yang {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     #main .you .today .yin {
-        font-size: 20px;
+        font-size: 24px;
+        color: #000;
+        font-weight: bold;
     }
     #main .zuo .cover .inner, #main .you .today #todayLunar, #main .you .today #todaySolar {
         display: none; 
@@ -479,6 +488,11 @@ body ::-webkit-scrollbar {
     #main .you .menu .active {
         background: rgba(255, 255, 255, 0); 
     }
+
+    #main .you .menu .yin {
+        font-size: 18px;
+    }
+
     #main .you .menu .active .yang {
         color: #071e3d!important;
     }
