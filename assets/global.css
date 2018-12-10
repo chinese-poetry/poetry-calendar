@@ -67,6 +67,7 @@ body ::-webkit-scrollbar {
     top: 0;
     bottom: 0;
     border: 1px solid #eee;
+    border-top: 0px;
 }
 
 #main .zuo .cover .intro {
@@ -127,6 +128,16 @@ body ::-webkit-scrollbar {
 /* main you */
 #main .you {
     background: rgba(255, 255, 255, 0.45);
+}
+
+#main .you .progress {
+    height: 5px;
+    background: #aedadd;
+}
+
+#main .you .progress .label {
+    height: 5px;
+    background: #1d5464;
 }
 
 #main .you .today {
@@ -191,7 +202,6 @@ body ::-webkit-scrollbar {
 }
 
 #main .menu {
-    height: 80px;
     background: rgba(0, 0, 0, 0);
     border-bottom: 0;
     border-left: 0;
@@ -203,6 +213,10 @@ body ::-webkit-scrollbar {
 #main .menu .item:first-child {
     width: calc(14.285% - 2px);
     border-left: 1px dashed #5D6D7E;
+}
+
+#main .menu .no.item .yang, #main .menu .no.item .yin {
+    opacity: 0.5;
 }
 
 #main .menu .item:last-child {
@@ -217,6 +231,8 @@ body ::-webkit-scrollbar {
     border-bottom: 1px dashed #5D6D7E;
     border-right: 1px dashed #5D6D7E;
     width: calc(14.285% - 1px);
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 
 #main .menu .item:hover {
@@ -235,7 +251,7 @@ body ::-webkit-scrollbar {
 
 #main .menu .yin {
     padding-bottom: 8px;
-    font-size: 16px;
+    font-size: 14px;
     color: #ff5959;
 }
 
@@ -368,6 +384,14 @@ body ::-webkit-scrollbar {
         font-size: 16px;
     }
 
+    #main .middle .pinfo .column {
+        width: calc(50% - 2em)!important;
+    }
+
+    #main .you .today .column {
+        width: calc(50% - 2em)!important;
+    }
+
     #main .middle .pinfo .title {
         font-size: 16px;
     }
@@ -377,15 +401,23 @@ body ::-webkit-scrollbar {
     }
 
     #main .you .today .yang {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     #main .you .today .yin {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     #main .menu {
         height: auto;
+    }
+
+    #main .menu .item .yang {
+        font-size: 16px;
+    }
+
+    #main .menu .item .yino {
+        font-size: 16px;
     }
 
     #main .footer {
@@ -553,5 +585,12 @@ body ::-webkit-scrollbar {
     }
     #main .you .menu .active .yang {
         color: #071e3d!important;
+    }
+}
+
+
+@media print {
+    #main .noprint {
+        display: none;
     }
 }

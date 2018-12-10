@@ -120,15 +120,19 @@ function toggleById(ids, id) {
 
 function next() {
     window.day.setDate(window.day.getDate() + 1);
+    window.year = window.day.getFullYear()
     render(window.day)
 }
 
 function today() {
-    render(new Date());
+    var today = new Date()
+    window.year = today.getFullYear()
+    render(today);
 }
 
 function last() {
     window.day.setDate(window.day.getDate() - 1);
+    window.year = window.day.getFullYear()
     render(window.day)
 }
 
@@ -195,4 +199,11 @@ function getJijie (today) {
         return 'dong'
     }
     return 'chun'
+}
+
+function getProgress (today) {
+    var year = today.getFullYear();
+    var firstDay = new Date(year, 0, 1)
+
+    return datediff(today, firstDay) / 365 * 100;
 }

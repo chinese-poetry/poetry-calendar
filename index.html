@@ -56,6 +56,9 @@
                 </div>
                 <div class="you column">
                     <div class="you-wrapper" style="background: rgba(255, 255, 255, 0.6);">
+                    <div class="progress">
+                        <div id="progress" class="label"></div>
+                    </div>
 
                     <div class="ui today only-screen equal width grid">
                         <div class="l ten wide column">
@@ -67,6 +70,7 @@
                             <div onclick="today()" id="firstLunar" class="yin">十月廿三</div>
                         </div>
                     </div>
+
 
                     <div class="middle">
                         <div class="ui pinfo equal width grid meta">
@@ -168,9 +172,10 @@
             window.day = t;
             var ji = getJijie(t)
             var jijieFlower = JIJIEMAP[ji]
-            console.log(ji, jijieFlower)
             // 季节花
             document.getElementById("grid").style.backgroundImage = "url('assets/images/" + jijieFlower + ".png')";
+            // 进度条
+            document.getElementById("progress").style.width = getProgress(t) + '%';
 
             var currentWeekNumber = weekNumber(t);
             var currentMonday = monDay(t);
@@ -259,6 +264,14 @@
                     el.classList.remove("active")
                 }
 
+                console.log(lunar.cYear, window.year)
+
+                if (lunar.cYear !== window.year) {
+                    el.classList.add('no')
+                } else {
+                    el.classList.remove('no')
+                }
+
                 el.getElementsByClassName("yang")[0].innerHTML = lunar.cDay
 
                 var lunarElement = el.getElementsByClassName("yin")[0]
@@ -304,11 +317,14 @@
         // render(new Date());
         var url = new URL(window.location.href);
         var d = url.searchParams.get("d");
-        var renderDate = new Date(d);
+
         if (d !== null) {
-            render(renderDate)
+            var renderDate = new Date(d);
         } else {
-            render(new Date()) 
-        } 
+            var renderDate = new Date()
+        }
+
+        window.year = renderDate.getFullYear()
+        render(renderDate)
     </script>
 </html>

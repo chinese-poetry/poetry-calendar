@@ -474,6 +474,11 @@ var images = {
     "link": "http://www.polayoutu.com/collections", 
     "author": "泼辣有图"
   }, 
+  "polayoutu-00078": {
+    "src": "polayoutu-00078.jpg", 
+    "link": "http://www.polayoutu.com/collections", 
+    "author": "泼辣有图"
+  }, 
   "polayoutu-00060": {
     "src": "polayoutu-00060.jpg", 
     "link": "http://www.polayoutu.com/collections", 

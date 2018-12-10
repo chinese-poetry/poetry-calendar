@@ -41,8 +41,6 @@ def printPDF(url, margins):
     app.exec_()
 
 
-
-
 if __name__ == '__main__':
     year = 2019
 
@@ -63,7 +61,7 @@ if __name__ == '__main__':
             break    
 
         url = 'http://127.0.0.1:8090/?d=' + str(d)
-        #printPDF(url, margins)
+        printPDF(url, margins)
         
         d = d + timedelta(days=7)
 
