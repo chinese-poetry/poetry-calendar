@@ -166,10 +166,8 @@ body ::-webkit-scrollbar {
 
 
 #main .you .today .yin {
-    height: 60px;
     text-align: right;
-    line-height: 60px;
-    font-size: 2em;
+    font-size: 24px;
     font-weight: 400;
     color: #333;
     opacity: .8;
@@ -178,11 +176,9 @@ body ::-webkit-scrollbar {
 
 #main .you .today .yang {
     display: inline-block;
-    height: 60px;
-    font-size: 2em;
+    font-size: 24px;
     font-weight: 300;
     color:#488b8f;
-    letter-spacing: 3px;
 }
 
 #main .calendar {
@@ -216,7 +212,7 @@ body ::-webkit-scrollbar {
 }
 
 #main .menu .no.item .yang, #main .menu .no.item .yin {
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 #main .menu .item:last-child {
@@ -386,12 +382,24 @@ and (max-width : 1024px) {
         font-size: 16px;
     }
 
+    #main .you .middle .pinfo {
+        height: auto;
+    }
+
     #main .middle .pinfo .column {
         width: calc(50% - 2em)!important;
+        height: auto;
+        padding: 1em;
+        line-height: 40px!important;
+    }
+
+    #main .you .today {
+        height: auto;
     }
 
     #main .you .today .column {
         width: calc(50% - 2em)!important;
+        line-height: 40px!important;
     }
 
     #main .middle .pinfo .title {
@@ -592,7 +600,4 @@ and (max-width : 1024px) {
 
 
 @media print {
-    #main .noprint {
-        display: none;
-    }
 }
