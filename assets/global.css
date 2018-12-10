@@ -337,9 +337,11 @@ body ::-webkit-scrollbar {
 }
 
 /* mobile */
-
-@media only screen and (max-width: 767px) {
+@media only screen 
+and (min-width : 0px) 
+and (max-width : 1024px) {
     #grid>.column {
+        width: 100%;
         padding: 0!important;
     }
     #main .zuo .cover {
