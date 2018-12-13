@@ -8,6 +8,8 @@ from PyQt5.QtGui import QPageLayout, QPageSize
 from PyPDF2 import PdfFileMerger
 
 
+root = "https://shici.store/poetry-calendar"
+
 def log(msg):
     print("+ " + msg);
 
@@ -52,15 +54,15 @@ if __name__ == '__main__':
 
     # cover of book
     margins = [0, 0, 0, 0]
-    printPDF('http://127.0.0.1:8090/first.html', margins)
-    printPDF('http://127.0.0.1:8090/end.html', margins)
+    printPDF(root + '/first.html', margins)
+    printPDF(root + '/end.html', margins)
 
     margins = [16, 32, 16, 32]
     while True:
         if d.year > year:
             break    
 
-        url = 'http://127.0.0.1:8090/?d=' + str(d)
+        url = root + '/?d=' + str(d)
         printPDF(url, margins)
         
         d = d + timedelta(days=7)
