@@ -633,4 +633,7 @@ and (max-width : 1024px) {
 
 
 @media print {
+    .github-corner {
+        display: none;
+    }
 }
