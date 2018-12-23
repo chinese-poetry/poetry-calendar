@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>诗词日历</title>
+        <meta name="author"  content="JackeyGao">
+        <meta name="description" content="JackeyGao, 一个程序员的技术分享和对生活的理解.">
+        <meta name="keywords"  content="JackeyGao, JackeyGao的日记本, Python, Django, Vue.js, chinese-poetry">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/global.css">
+        <link rel="stylesheet" href="assets/theme.css">
+        <link rel="stylesheet" href="assets/semantic/components/site.min.css">
+        <link rel="stylesheet" href="assets/semantic/components/grid.min.css">
+        <link rel="stylesheet" href="assets/semantic/components/menu.min.css">
+        <link rel="stylesheet" href="assets/semantic/components/icon.min.css">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/favicon/site.webmanifest">
+        <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="assets/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    
+    <body>
+        <div id="main" >
+            <div class="container">
+            <div id="grid" class="ui stackable two column grid">
+                <div class="zuo column" style="background: rgba(255, 255, 255, 0.6);">
+                    <div id="imageCover" class="cover">
+                        <div class="intro">
+                            <div class="inner" style="background: #000;">
+                                <div class="middle" style="border-left: 1px solid #eee;">
+                                    <input onchange="imageChange(this)" type="file" name="pic" accept="image/*">
+                                    <!--
+                                    来自: <a id="imageLink" href="https://jackeygao.io" target="blank">JackeyGao</a>
+                                    -->
+                                </div>
+                                
+                                <div class="right" style="display: inline-block;" onclick="print()">
+                                    <i class="green print icon"></i>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="you column">
+                    <div class="you-wrapper" style="background: rgba(255, 255, 255, 0.6);">
+                    <div class="progress">
+                        <div id="progress" class="label"></div>
+                    </div>
+
+                    <div class="ui today only-screen equal width grid">
+                        <div class="l five wide column">
+                            <div id="todaySolar" class="yang">2018.11.30 周五</div>
+                            <div id="firstSolar" class="yang">2018.11.30</div>
+                        </div>
+                        <div class="r column">
+                            <div onclick="today()" id="todayLunar" class="yin">十月廿三</div>
+                            <div onclick="today()" id="firstLunar" class="yin">十月廿三</div>
+                        </div>
+                    </div>
+
+
+                    <div class="middle">
+                        <div class="ui pinfo equal width grid meta">
+                            <div  contenteditable="true" id="ptitle" class="l title ten wide column">
+                                虞美人
+                            </div>
+                            <div  contenteditable="true" id="pauthor" class="r author column">
+                                李煜
+                            </div>
+                        </div>
+                        <div id="pcontent-wrapper">
+                            <div id="pcontent-grid" class="ui equal width grid">
+                                <div class="l twelve wide column">
+                                    <div id="pcontent" contenteditable="true" class="poetry-content">
+                                        <p>春花秋月何时了，往事知多少？</p>
+                                    
+                                        <p>小楼昨夜又东风，故国不堪回首月明中。</p>
+                                    
+                                        <p>雕栏玉砌应犹在，只是朱颜改。</p>
+                                    
+                                        <p>问君能有几多愁？恰似一江春水向东流。</p>
+                                    </div>
+                                </div>
+                                <div class="r column">
+                                    <div class="meta">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar">
+                        <div class="ui text seven item menu">
+                            <div id="w1" data-date="2018-08-01" class="item">
+                                <div>
+                                    <div class="yang">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
+                            </div>
+                            <div id="w2" class="item">
+                                <div>
+                                    <div class="yang">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
+                            </div>
+                            <div id="w3" class="item">
+                                <div>
+                                    <div class="yang header">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
+                            </div>
+                            <div id="w4" class="item">
+                                <div>
+                                    <div class="yang header">26</div>
+                                    <div class="yin">十九</div>
+                                </div>
+                            </div>
+                            <div id="w5" class="item">
+                                <div>
+                                    <div class="yang header">27</div>
+                                    <div class="yin">二十</div>
+                                </div>
+                            </div>
+                            <div id="w6" class="item">
+                                <div>
+                                    <div class="yang header">28</div>
+                                    <div class="yin">廿一</div>
+                                </div>
+                            </div>
+                            <div id="w7" class="item">
+                                <div>
+                                    <div class="yang header">29</div>
+                                    <div class="yin">廿二</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="footer">
+                        © <a href="https://jackeygao.io">JackeyGao.io</a> 2018. 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <a href="https://github.com/chinese-poetry/poetry-calendar" class="github-corner" aria-label="View source on GitHub">
+            <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+                <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+                <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+                <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+            </svg>
+        </a>
+    </body>
+    <script src="assets/js/calendar.js"></script>
+    <script src="assets/js/web.js"></script>
+    <script src="assets/js/节日表.js"></script>
+    <script src="assets/js/诗词表.js"></script>
+    <script src="assets/js/images.js"></script>
+    <script src="assets/js/tang300.js"></script>
+
+    <script>
+        var wrappers = ["site-wrapper", "social-links-wrapper", "donation-wrapper", "skin-wrapper"]
+        var allImages = Object.values(images)
+
+        function imageChange (el) {
+            var reader = new FileReader();
+
+            var file = el.files[0]
+
+
+            reader.onload = function (e) {
+                document.getElementById("imageCover").style.backgroundImage = "url('" + e.target.result + "')";
+                // document.getElementById("imageLink").href = "#";
+                // document.getElementById("imageLink").innerHTML = image.author;
+            }
+
+            reader.readAsDataURL(file);
+
+            console.log("change") 
+        }
+
+        function render(t) {
+            window.day = t;
+            var ji = getJijie(t)
+            var jijieFlower = JIJIEMAP[ji]
+            // 季节花
+            document.getElementById("grid").style.backgroundImage = "url('assets/images/" + jijieFlower + ".png')";
+            // 进度条
+            document.getElementById("progress").style.width = getProgress(t) + '%';
+
+            var currentWeekNumber = weekNumber(t);
+            var currentMonday = monDay(t);
+            var currentWeeks = weekDays(currentMonday);
+
+            var day = calendar.solar2lunar(t.getFullYear(), t.getMonth() + 1, t.getDate());
+
+            var lunarDate = day.gzYear + '·' + day.IMonthCn + day.IDayCn;
+            var solarDate = day.cYear + '.' + day.cMonth + '.' + day.cDay + '   ' + day.ncWeek;
+
+            document.getElementById("todayLunar").innerHTML = lunarDate
+            document.getElementById("todaySolar").innerHTML = solarDate
+
+
+            // Poetry
+            var poetry = weekPoetry[currentWeekNumber[1] - 1]
+
+            if (!poetry) {
+                var poetry = poetrys[Math.floor(Math.random() * poetrys.length)];
+                poetry.content = poetry.paragraphs
+            }
+
+            // images
+            if (poetry.image) {
+                var image = images[poetry.image]
+            } else {
+                var image = allImages[Math.floor(Math.random() * allImages.length)];
+            }
+
+            document.getElementById("imageCover").style.backgroundImage = "url('images/" + image.src + "')";
+            // document.getElementById("imageLink").href = image.link;
+            // document.getElementById("imageLink").innerHTML = image.author;
+
+            // dynasty
+            if (poetry.dynasty) {
+                var author = poetry.dynasty + '·' + poetry.author;
+            } else {
+                var author = poetry.author;
+            }
+
+            setContentP(poetry.content)
+            document.getElementById("ptitle").innerHTML = poetry.title
+            document.getElementById("pauthor").innerHTML = author
+
+            var weekIds = ["w1", "w2", "w3", "w4", "w5", "w6", "w7"]
+            var firstSolar = ""
+            var firstLunar = ""
+
+
+            for (var i in weekIds) {
+                var id = weekIds[i];
+                var solar = currentWeeks[i];
+                var lunar = calendar.solar2lunar(
+                    solar.getFullYear(), 
+                    solar.getMonth() + 1, 
+                    solar.getDate()
+                );
+
+
+                if (id === 'w1') {
+                    firstSolar = firstSolar + pad(lunar.cMonth) + '.' + pad(lunar.cDay) + ''
+                    firstLunar = firstLunar + pad(lunar.IMonthCn) + pad(lunar.IDayCn);
+                }
+
+
+                if (id === 'w7') {
+                    titleSolar = lunar.cYear + '-' + '第' + pad(currentWeekNumber[1]) + '周';
+                    firstSolar = firstSolar + '~' + pad(lunar.cMonth) + '.' + pad(lunar.cDay) + ''
+                    firstLunar = firstLunar + '~' + pad(lunar.IMonthCn) + pad(lunar.IDayCn);
+                    document.getElementById("firstSolar").innerHTML = firstSolar
+                    document.getElementById("firstLunar").innerHTML = firstLunar
+
+                    document.title = '诗词周历-' + titleSolar + '-' + firstSolar;
+                }
+
+                var el = document.getElementById(id);
+
+                if (solar.getDate() === t.getDate()) {
+                    el.classList.add("active");
+                    if (lunar.lMonth === 4 && lunar.lDay === 26) {
+                        setContentP(["祝你生日快乐", "祝你生日快乐", "祝你生日快乐","祝你生日快乐~~"])
+                        document.getElementById("ptitle").innerHTML = "生日歌"
+                        document.getElementById("pauthor").innerHTML = "党中央"
+                    }
+                } else {
+                    el.classList.remove("active")
+                }
+
+                console.log(lunar.cYear, window.year)
+
+                if (lunar.cYear !== window.year) {
+                    el.classList.add('no')
+                } else {
+                    el.classList.remove('no')
+                }
+
+                el.getElementsByClassName("yang")[0].innerHTML = lunar.cDay
+
+                var lunarElement = el.getElementsByClassName("yin")[0]
+
+                var nextDay = new Date(solar.getFullYear(),  solar.getMonth(), solar.getDate())
+                nextDay.setDate(solar.getDate() + 1);
+            
+                var nextDay = calendar.solar2lunar(
+                    nextDay.getFullYear(), 
+                    nextDay.getMonth() + 1, 
+                    nextDay.getDate()
+                );
+
+                if (nextDay.IMonthCn + nextDay.IDayCn === '正月初一') {
+                    lunarElement.innerHTML = '除夕'
+                    continue
+                }
+
+                if (nextDay.Term === '清明') {
+                    lunarElement.innerHTML = '寒食'
+                    continue
+                }
+
+                if (lunar.IMonthCn + lunar.IDayCn in lundarDayMap) {
+                    lunarElement.innerHTML = lundarDayMap[lunar.IMonthCn + lunar.IDayCn]
+                    continue
+                }
+
+                if (lunar.cMonth + '.' + lunar.cDay in solarDayMap) {
+                    lunarElement.innerHTML = solarDayMap[lunar.cMonth + '.' + lunar.cDay]
+                    continue
+                }
+
+                if (lunar.Term) {
+                    lunarElement.innerHTML = lunar.Term
+                } else {
+                    lunarElement.innerHTML = lunar.IDayCn
+                }
+
+            }
+        }
+
+        // render(new Date());
+        var url = new URL(window.location.href);
+        var d = url.searchParams.get("d");
+
+        if (d !== null) {
+            var renderDate = new Date(d);
+        } else {
+            var renderDate = new Date()
+        }
+
+        window.year = renderDate.getFullYear()
+        render(renderDate)
+    </script>
+</html>
