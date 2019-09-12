@@ -184,6 +184,7 @@ body ::-webkit-scrollbar {
     font-size: 24px;
     font-weight: 300;
     color:#488b8f;
+    min-width: 183px;
 }
 
 #main .calendar {
